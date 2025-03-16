@@ -1,0 +1,2587 @@
+{
+	"CMS Folders": {
+	  "prefix": "folders",
+	  "body": [
+		"<cms:folders masterpage='$1.php' skip_custom_fields='$2' $3>",
+		" $4",
+		"</cms:folders>"
+	  ],
+	  "description": "Insert a CMS folders tag with parameters:  \n - masterpage \n - root \n - childof \n - hierarchical \n - depth \n - orderby \n - order \n - exclude \n - extended_info",
+	  "scope": "html, php, inc"
+	},
+	"CMS List Folders": {
+	  "prefix": "listfolders",
+	  "body": [
+		"<cms:listfolders masterpage='$1.php' skip_custom_fields='$2' $3>",
+		" $4",
+		"</cms:listfolders>"
+	  ],
+	  "description": "Insert a CMS list folders tag with parameters: \n - masterpage \n - root \n - childof \n - hierarchical \n - depth \n - orderby \n - order \n - exclude \n - extended_info \n - show_count",
+	  "scope": "html, php, inc"
+	},
+	"CMS Pages": {
+	  "prefix": "pages",
+	  "body": [
+		"<cms:pages masterpage='$1.php' skip_custom_fields='$2' $3>",
+		" $4",
+		"</cms:pages>"
+	  ],
+	  "description": "Insert a CMS pages tag with parameters: \n - masterpage \n - id \n - page_name \n - limit \n - paginate \n - offset \n - startcount \n - folder \n - include_subfolders \n - start_on \n - stop_before \n - show_future_entries \n - orderby \n - order \n - custom_field",
+	  "scope": "html, php, inc"
+	},
+	"CMS Archives": {
+	  "prefix": "archives",
+	  "body": [
+		"<cms:pages masterpage='$1.php' skip_custom_fields='$2' $3>",
+		" $4",
+		"</cms:archives>"
+	  ],
+	  "description": "Insert a CMS Archives tag with parameters: \n - masterpage \n - order \n - limit \n - start_on \n - stop_before \n - show_future_entries \n - type \n - startcount",
+	  "scope": "html, php, inc"
+	},
+	"CMS Parent Folders": {
+	  "prefix": "parentfolders",
+	  "body": [
+		"<cms:parentfolders folder='$1' skip_custom_fields='$2'>",
+		" $3",
+		"</cms:parentfolders>"
+	  ],
+	  "description": "Insert a CMS Parent Folders tag with parameters: \n - folder, \n - masterpage",
+	  "scope": "html, php, inc"
+	},
+	"CMS Func If": {
+	  "prefix": "func_if",
+	  "body": [
+		"<cms:editable name='$1' label='$3' desc='$4' opt_values='$5=$2 | $6' order='$7' opt_selected='$5' type='radio' />",
+		"<cms:func _into='$2_cond' $1=''>",
+		" <cms:if $1='$2'>show<cms:else />hide</cms:if>",
+		"</cms:func>",
+		"<cms:editable name='$2' label='$5' type='$8' not_active=$2_cond order='$9' />"
+	  ],
+	  "description": "Condition on the backend example: \n <cms:editable name='provider' label='Provider' desc='Select the Video Host' opt_values='YouTube=youtube | Vimeo=vimeo | Others=others' order='20' opt_selected='YouTube' type='radio' /> \n <cms:func _into='youtube_cond' provider=''> \n <cms:if provider='youtube'>show \n <cms:else />hide</cms:if> \n </cms:func> \n <cms:editable name='youtube_id' label='Youtube ID' type='text' not_active=youtube_cond order='1' /> \n <cms:editable name='vimeo_id' label='Vimeo ID' type='text' not_active=vimeo_cond order='40' /> \n <cms:editable name='other' label='Others' type='text' not_active=others_cond order='50' /> \n",
+	  "scope": "html, php, inc"
+	},
+	"Thumbnail": {
+	  "prefix": "thumbnail",
+	  "body": [
+		"<cms:thumbnail src='$1' width='$2' height='$3' enforce_max='1'/>"
+	  ],
+	  "description": "Insert a Thumbnail tag with parameters: \n - src \n - width \n - height \n - enforce_max",
+	  "scope": "html, php, inc"
+	},
+	"CMS Related Pages": {
+	  "prefix": "related_pages",
+	  "body": [
+		"<cms:related_pages '$1' skip_custom_fields='$2'>",
+		" $3",
+		"</cms:related_pages>"
+	  ],
+	  "description": "Insert a Related Pages tag with parameters: \n - fields(default)",
+	  "scope": "html, php, inc"
+	},
+	"CMS Reverse Related Pages": {
+	  "prefix": "reverse_related_pages",
+	  "body": [
+		"<cms:reverse_related_pages '$1' masterpage='$2.php' $3>",
+		" $4",
+		"</cms:reverse_related_pages>"
+	  ],
+	  "description": "Insert a Reverse Related Pages tag with parameters: \n - field (default) \n - masterpage",
+	  "scope": "html, php, inc"
+	},
+	"Masterpage": {
+	  "prefix": "masterpage",
+	  "body": [
+		"masterpage='$1.php'"
+	  ],
+	  "description": "The name of the template that defines the editable region.",
+	  "scope": "html, php, inc"
+	},
+	"Skip Custom Fields": {
+	  "prefix": "skip_custom_fields",
+	  "body": [
+		"skip_custom_fields='$1'"
+	  ],
+	  "description": "If you simply require to display the names and links of the pages, the values contained within the editable regions of the pages can be skipped from being fetched by setting this parameter. This will result in a performance boost.",
+	  "scope": "html, php, inc"
+	},
+	"Page": {
+	  "prefix": "page",
+	  "body": [
+		"page='$1'"
+	  ],
+	  "description": "The name of the page that contains the editable region. \n For non-clonable pages this parameter can be skipped.",
+	  "scope": "html, php, inc"
+	},
+	"Type": {
+	  "prefix": "type",
+	  "body": [
+		"type='$1'"
+	  ],
+	  "description": "Type of fields \n - text \n - password \n - textarea \n - richtext \n - image \n - thumbnail \n - file \n - radio \n - checkbox \n - dropdown \n - group \n - message \n - nicedit \n - relation",
+	  "scope": "html, php, inc"
+	},
+	"Hierarchical": {
+	  "prefix": "hierarchical",
+	  "body": [
+		"hierarchical='$1'"
+	  ],
+	  "description": "By setting this parameter the folders tag can be made to enumerate the folders in their hierarchical order. If skipped, the folders are enumerated in the alphabetical order of their names.",
+	  "scope": "html, php, inc"
+	},
+	"Include Subfolders": {
+	  "prefix": "include_subfolders",
+	  "body": [
+		"include_subfolders='$1'"
+	  ],
+	  "description": "The default value of this parameter is '1' and this causes the 'folder' parameter mentioned above to list pages belonging to the specified folder AND all sub-folders in the hierarchy below it. \n Setting 'include_subfolders' to '0' will make this tag list only pages that are located directly within the specified folder.",
+	  "scope": "html, php, inc"
+	},
+	"Folder": {
+	  "prefix": "folder",
+	  "body": [
+		"folder='$1'"
+	  ],
+	  "description": "This parameter can be used to list only the page belonging to a particular folder (or folders).",
+	  "scope": "html, php, inc"
+	},
+	"ID": {
+	  "prefix": "id",
+	  "body": [
+		"id='$1'"
+	  ],
+	  "description": "Id of the page or input.",
+	  "scope": "html, php, inc"
+	},
+	"NOT": {
+	  "prefix": "NOT",
+	  "body": [
+		"NOT"
+	  ],
+	  "description": "NOT excludes the pages that match the condition.",
+	  "scope": "html, php, inc"
+	},
+	"Page Name": {
+	  "prefix": "page_name",
+	  "body": [
+		"page_name='$1'"
+	  ],
+	  "description": "Fetch the data from the specific page name.",
+	  "scope": "html, php, inc"
+	},
+	"Limit": {
+	  "prefix": "limit",
+	  "body": [
+		"limit='$1'"
+	  ],
+	  "description": "This sets the number of pages to be fetched. If this parameter is skipped, all pages are fetched.",
+	  "scope": "html, php, inc"
+	},
+	"Paginate": {
+	  "prefix": "paginate",
+	  "body": [
+		"paginate='$1'"
+	  ],
+	  "description": "This parameter is used to paginate the fetched pages. The value of this parameter is the number of pages to be displayed per page.",
+	  "scope": "html, php, inc"
+	},
+	"Offset": {
+	  "prefix": "offset",
+	  "body": [
+		"offset='$1'"
+	  ],
+	  "description": "Offset is used to skip the specified number of pages from the beginning of the list.",
+	  "scope": "html, php, inc"
+	},
+	"Start Count": {
+	  "prefix": "startcount",
+	  "body": [
+		"startcount='$1'"
+	  ],
+	  "description": "This tag sets a variable named k_count that increases with each iteration. By default, the first iteration is numbered 0. The startcount parameter can be used to make k_count begin from any arbitrary number.",
+	  "scope": "html, php, inc"
+	},
+	"Start On": {
+	  "prefix": "start_on",
+	  "body": [
+		"start_on='$1'"
+	  ],
+	  "description": "Can be set to list archives starting from this date.",
+	  "scope": "html, php, inc"
+	},
+	"Stop Before": {
+	  "prefix": "stop_before",
+	  "body": [
+		"stop_before='$1'"
+	  ],
+	  "description": "Can be set not to list archives later than this date.",
+	  "scope": "html, php, inc"
+	},
+	"K Archive Date": {
+	  "prefix": "k_archive_date",
+	  "body": [
+		"k_archive_date"
+	  ],
+	  "description": "Denotes the beginning of the time period.",
+	  "scope": "html, php, inc"
+	},
+	"Show Future Entries": {
+	  "prefix": "show_future_entries",
+	  "body": [
+		"show_future_entries='$1'"
+	  ],
+	  "description": "By default, the archives tag will ignore pages that have their publish date set to the future. This parameter can be set to '1' to change this behaviour.",
+	  "scope": "html, php, inc"
+	},
+	"Modification Date": {
+	  "prefix": "modification_date",
+	  "body": [
+		"modification_date"
+	  ],
+	  "description": "Fields for orderby parameter.",
+	  "scope": "html, php, inc"
+	},
+	"Publish Date": {
+	  "prefix": "publish_date",
+	  "body": [
+		"publish_date"
+	  ],
+	  "description": "Fields for orderby parameter.",
+	  "scope": "html, php, inc"
+	},
+	"Count Only": {
+	  "prefix": "count_only",
+	  "body": [
+		"count_only='$1'"
+	  ],
+	  "description": "CouchCMS",
+	  "scope": "html, php, inc"
+	},
+	"Desc": {
+	  "prefix": "desc",
+	  "body": [
+		"desc"
+	  ],
+	  "description": "Fields for the order parameter.",
+	  "scope": "html, php, inc"
+	},
+	"Asc": {
+	  "prefix": "asc",
+	  "body": [
+		"asc"
+	  ],
+	  "description": "Fields for the order parameter.",
+	  "scope": "html, php, inc"
+	},
+	"Searchable": {
+	  "prefix": "searchable",
+	  "body": [
+		"searchable='$1'"
+	  ],
+	  "description": "For Editable: Setting the searchable parameter to '0' for an editable region will exclude its contents from search results. \n For Config List View: If this parameter is set to '1', a search box appears above the page listing. It can be useful for templates that can potentially have a large number of pages.",
+	  "scope": "html, php, inc"
+	},
+	"Custom Field": {
+	  "prefix": "custom_field",
+	  "body": [
+		"custom_field='$1=$2'"
+	  ],
+	  "description": "The editable regions defined for a template can be used to fetch cloned pages that contain certain values within those editable regions. \n <cms:pages custom_field='distance<50 | price>=1000000 | price<=3000000'></cms:pages> \n Insert a Custom Fields tag with parameters: \n - = (equal to) \n - != (not equal to) \n - <= (less than or equal to) \n - >= (greater than or equal to) \n - <> (not equal to) \n - < (less than) \n - > (greater than)",
+	  "scope": "html, php, inc"
+	},
+	"Executable": {
+	  "prefix": "executable",
+	  "body": [
+		"executable='0'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Clonable": {
+	  "prefix": "clonable",
+	  "body": [
+		"clonable='1'"
+	  ],
+	  "description": "To create cloned pages out of a template, the template first needs to be marked as being clonable. \n A template can be marked as being clonable by using the template tag somewhere within it and setting its clonable parameter to '1'. \n Place the following snippet somewhere at the begining of the template (within the HEAD tag will do just fine)",
+	  "scope": "html, php, inc"
+	},
+	"Commentable": {
+	  "prefix": "commentable",
+	  "body": [
+		"commentable='1'"
+	  ],
+	  "description": "Couch allows the submission of comments on pages created by it but this must first be permitted by you. \n To do so, the commentable parameter of the template tag has to be set to '1' for each template that you wish to allow comments for.",
+	  "scope": "html, php, inc"
+	},
+	"Dynamic Folders": {
+	  "prefix": "dynamic_folders",
+	  "body": [
+		"dynamic_folders='1'"
+	  ],
+	  "description": "By default the dynamic folders feature is turned off for all templates. \n To turn on this capability for a particular template, the designer needs to add the 'dynamic_folders' attribute to the 'template' tag of this template.",
+	  "scope": "html, php, inc"
+	},
+	"Has Subtemplates": {
+	  "prefix": "has_subtemplates",
+	  "body": [
+		"has_subtemplates='1'"
+	  ],
+	  "description": "'has_subtemplates' is the parameter that declares that template will have sub-templates",
+	  "scope": "html, php, inc"
+	},
+	"Subtpl Selector Label": {
+	  "prefix": "subtpl_selector_label",
+	  "body": [
+		"subtpl_selector_label='$1'"
+	  ],
+	  "description": "This parameter is used to display the sub-template selector label",
+	  "scope": "html, php, inc"
+	},
+	"Subtpl Selector Is Advanced": {
+	  "prefix": "subtpl_selector_is_advanced",
+	  "body": [
+		"subtpl_selector_is_advanced='0'"
+	  ],
+	  "description": "The 'subtpl_selector_is_advanced' can be set to '1' to make Couch show a popup window (instead of a dropdown) for the selector - comes in handy when we have a large number of sub-templates to contend with.",
+	  "scope": "html, php, inc"
+	},
+	"Custom Field Sub Template": {
+	  "prefix": "custom_field_sub_template",
+	  "body": [
+		"custom_field='_sub_template=$1'"
+	  ],
+	  "description": "This parameter is used to fetch the listing pages with sub-templates. For Example: <cms:pages masterpage='products.php' custom_field=\"_sub_template=monitors\"> \n   <a href=\"<cms:show k_page_link />\"> \n     <h3> \n       <cms:show k_page_title /> \n     </h3> \n    </a> \n </cms:pages>",
+	  "scope": "html, php, inc"
+	},
+	"Order": {
+	  "prefix": "order",
+	  "body": [
+		"order='$1'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Order By": {
+	  "prefix": "orderby",
+	  "body": [
+		"orderby='$1'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Order Dir Asc Desc": {
+	  "prefix": "order_dir_asc_desc",
+	  "body": [
+		"order_dir='$1'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Create Auto": {
+	  "prefix": "create_auto",
+	  "body": [
+		"create_auto='$1'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Hidden": {
+	  "prefix": "hidden",
+	  "body": [
+		"hidden='1'"
+	  ],
+	  "description": "CouchCMS/TemplateType",
+	  "scope": "html, php, inc"
+	},
+	"Stub": {
+	  "prefix": "stub",
+	  "body": [
+		"<cms:stub name='$1' $2 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Filter Dropdown": {
+	  "prefix": "filter_dropdown",
+	  "body": [
+		"filter='dropdown'"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Filter Checkbox": {
+	  "prefix": "filter_checkbox",
+	  "body": [
+		"filter='checkbox'"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Filter Slider": {
+	  "prefix": "filter_slider",
+	  "body": [
+		"filter='slider'"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Config Form View": {
+	  "prefix": "config_form_view",
+	  "body": [
+		"<cms:config_form_view>$1</cms:config_form_view>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Process Filters": {
+	  "prefix": "process_filters",
+	  "body": [
+		"<cms:process_filters folder=$1 with_count='$2'/>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Config List View": {
+	  "prefix": "config_list_view",
+	  "body": [
+		"<cms:config_list_view orderby='weight' order='desc' exclude='default-page-for-$1-php' searchable='$2' limit='10' >",
+		"<cms:field 'k_selector_checkbox' />",
+		"<cms:field 'k_page_title' />",
+		"<cms:field '$3' />",
+		"<cms:field 'k_up_down' />",
+		"<cms:field 'k_actions' />",
+		"</cms:config_list_view>"
+	  ],
+	  "description": "CouchCMS/Display",
+	  "scope": "html, php, inc"
+	},
+	"Editable": {
+	  "prefix": "editable",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='$3' order='$4' searchable='1$5' search_type='text$5' $6 />"
+	  ],
+	  "description": "Insert an Editable tag with parameters: \n - name \n - label \n - desc \n - type \n    * text \n    * password \n    * textarea \n    * richtext \n    * image \n    * thumbnail \n    * file \n    * radio \n    * checkbox \n    * dropdown \n    * group \n    * message \n    * nicedit \n    * relation \n    * reverse_relation \n - order \n - group \n - searchable \n - search_type \n    * text \n    * integer \n    * decimal \n - hidden \n - required \n - validator \n - validator_msg \n - separator \n - val_separator",
+	  "scope": "html, php, inc"
+	},
+	"Editable Relation": {
+	  "prefix": "editable_relation",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='relation' has='$3' searchable='0$4' order='$5' orderby='page_name$6' order_dir='asc$7' create_auto='1$8' show_manage='1$9' advanced_gui='1$10' $11 />"
+	  ],
+	  "description": "Insert an Editable tag with parameters: \n - name \n - label \n - desc \n - type \n    * text \n    * password \n    * textarea \n    * richtext \n    * image \n    * thumbnail \n    * file \n    * radio \n    * checkbox \n    * dropdown \n    * group \n    * message \n    * nicedit \n    * relation \n    * reverse_relation \n - order \n - group \n - searchable \n - search_type \n    * text \n    * integer \n    * decimal \n - hidden \n - required \n - validator \n - validator_msg \n - separator \n - val_separator",
+	  "scope": "html, php, inc"
+	},
+	"Editable Radio": {
+	  "prefix": "editable_radio",
+	  "body": [
+		"<cms:editable name='$1' label='$2' desc='$3' opt_values='$4 | $5' order='$6' opt_selected='$7' type='radio' $8 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Checkbox": {
+	  "prefix": "editable_checkbox",
+	  "body": [
+		"<cms:editable name='$1' label='$2' desc='$3' opt_values='$4 | $5' order='$6' opt_selected='$7' type='checkbox' $8 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Dropdown": {
+	  "prefix": "editable_dropdown",
+	  "body": [
+		"<cms:editable name='$1' label='$2' desc='$3' opt_values='Please Select=- | $4' opt_selected='$5' order='$6' type='dropdown' $7 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Group": {
+	  "prefix": "editable_group",
+	  "body": [
+		"<cms:editable name='$1_group' label='$2' type='group' order='$3' collapsed='0$4' >",
+		" $3 ",
+		"</cms:editable>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Row": {
+	  "prefix": "editable_row",
+	  "body": [
+		"<cms:editable name='$1_row' type='row' order='$2'>",
+		" $3 ",
+		"</cms:editable>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Message": {
+	  "prefix": "editable_message",
+	  "body": [
+		"<cms:editable name='$1' type='message' order='$2'>",
+		" $3 ",
+		"</cms:editable>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Image": {
+	  "prefix": "editable_image",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='image' width='$3' height='$4' crop='$5' quality='$6' show_preview='$7' preview_height='$8' allowed_ext='jpg, jpeg, png, webp$9' order='$10'/>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable File": {
+	  "prefix": "editable_file",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='file' allowed_ext='jpg, jpeg, png, webp, webm$9' order='$10'/>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Editable Region": {
+	  "prefix": "editable_region",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='$3' order='$4' $5>$6</cms:editable>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Field": {
+	  "prefix": "field",
+	  "body": [
+		"<cms:field '$1' />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Sub Template Common": {
+	  "prefix": "sub_template_common",
+	  "body": [
+		"<cms:sub_template name='@common'>$1</cms:sub_template>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Sub Template": {
+	  "prefix": "sub_template",
+	  "body": [
+		"<cms:sub_template name='$1' label='$2'>$3</cms:sub_template>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Field with Label and Group": {
+	  "prefix": "field_with_label_and_group",
+	  "body": [
+		"<cms:field '$1' label='$2' group='$3_advanced_settings_' order='$4' $5 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Repeatable": {
+	  "prefix": "repeatable",
+	  "body": [
+		"<cms:repeatable name='$1' label='$2' stacked_layout='1$3' order='$4' $5>",
+		" $6 ",
+		"</cms:repeatable>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Mosaic": {
+	  "prefix": "mosaic",
+	  "body": [
+		"<cms:mosaic name='$1' label='$2' order='$3' $4>",
+		" $5 ",
+		"</cms:mosaic>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Tile": {
+	  "prefix": "tile",
+	  "body": [
+		"<cms:tile name='$1' label='$2' order='$3' $4>",
+		" $5 ",
+		"</cms:tile>"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Relation Many to Many": {
+	  "prefix": "relation_many_to_many",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='relation' has='many' masterpage='$3.php' orderby='page_title' order='$4' order_dir='asc$5' create_auto='1$6' searchable='0$7' show_manage='1$9' advanced_gui='1$10' include_subfolders='1$11' template_code='$12' folder='$13' $14 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Relation One to One": {
+	  "prefix": "relation_one_to_one",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='relation' masterpage='$3.php' has='one' reverse_has='one' orderby='page_title' order='$4' order_dir='asc$5' create_auto='1$6' searchable='0$7' advanced_gui='1$8' show_manage='1$9' include_subfolders='1$11' template_code='$12' folder='$13' $14 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Relation One to Many": {
+	  "prefix": "relation_one_to_many",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='relation' masterpage='$3.php' reverse_has='one' orderby='page_title' order='$4' order_dir='asc$5' create_auto='1$6' searchable='0$7'  show_manage='1$9' advanced_gui='1$10' include_subfolders='1$11' template_code='$12' folder='$13' $14 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Reverse Relation": {
+	  "prefix": "reverse_relation",
+	  "body": [
+		"<cms:editable name='$1' label='$2' type='reverse_relation' masterpage='$3.php' field='$4' anchor_text='$5' order='$6' order_dir='asc$5' create_auto='1$6' searchable='0$7'  show_manage='1$9' advanced_gui='1$10' include_subfolders='1$11' template_code='$12' folder='$13' $14 />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Enforce Max": {
+	  "prefix": "enforce_max",
+	  "body": [
+		"enforce_max='1'"
+	  ],
+	  "description": "CouchCMS/ThumbnailField",
+	  "scope": "html, php, inc"
+	},
+	"Description": {
+	  "prefix": "desc",
+	  "body": [
+		"desc='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Show Preview": {
+	  "prefix": "show_preview",
+	  "body": [
+		"show_preview='1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Crop": {
+	  "prefix": "crop",
+	  "body": [
+		"crop='1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Preview Width": {
+	  "prefix": "preview_width",
+	  "body": [
+		"preview_width='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Preview Height": {
+	  "prefix": "preview_height",
+	  "body": [
+		"preview_height='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Quality": {
+	  "prefix": "quality",
+	  "body": [
+		"quality='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Group": {
+	  "prefix": "group",
+	  "body": [
+		"group='$1_group'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 1": {
+	  "prefix": "col-1",
+	  "body": [
+		"class='col-md-1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 2": {
+	  "prefix": "col-2",
+	  "body": [
+		"class='col-md-2'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 3": {
+	  "prefix": "col-3",
+	  "body": [
+		"class='col-md-3'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 4": {
+	  "prefix": "col-4",
+	  "body": [
+		"class='col-md-4'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 5": {
+	  "prefix": "col-5",
+	  "body": [
+		"class='col-md-5'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 6": {
+	  "prefix": "col-6",
+	  "body": [
+		"class='col-md-6'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 7": {
+	  "prefix": "col-7",
+	  "body": [
+		"class='col-md-7'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 8": {
+	  "prefix": "col-8",
+	  "body": [
+		"class='col-md-8'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 9": {
+	  "prefix": "col-9",
+	  "body": [
+		"class='col-md-9'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 10": {
+	  "prefix": "col-10",
+	  "body": [
+		"class='col-md-10'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 11": {
+	  "prefix": "col-11",
+	  "body": [
+		"class='col-md-11'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Column 12": {
+	  "prefix": "col-12",
+	  "body": [
+		"class='col-md-12'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Search Type": {
+	  "prefix": "search_type",
+	  "body": [
+		"search_type='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Required": {
+	  "prefix": "required",
+	  "body": [
+		"required='1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Validator": {
+	  "prefix": "validator",
+	  "body": [
+		"validator='$1'"
+	  ],
+	  "description": "Usage: validator='alpha_num | min_len=6 | max_len=14' \n Bulit-in validator for couch are: \n - min_len (validator='min_len=6') \n - max_len (validator='max_len=20') \n - exact_len (validator='exact_len=10') \n - alpha (validator='alpha') \n - alpha_num (validator='alpha_num') \n - integer (validator='integer') \n - non_negative_integer (validator='non_negative_integer') \n - non_zero_integer (validator='non_zero_integer') \n - decimal (validator='decimal') \n - non_negative_decimal (validator='non_negative_decimal') \n - non_zero_decimal (validator='non_zero_decimal') \n - email (validator='email') \n - url (validator='url') \n - matches_field (validator='matches_field=my_password') \n",
+	  "scope": "html, php, inc"
+	},
+	"Validator Message": {
+	  "prefix": "validator_msg",
+	  "body": [
+		"validator_msg='$1'"
+	  ],
+	  "description": "Multiple messages can be applied together by separating them with a '|' (pipe) character. For example - \n validator_msg='required=Please enter something | min_len=Too short!'",
+	  "scope": "html, php, inc"
+	},
+	"Separator": {
+	  "prefix": "separator",
+	  "body": [
+		"separator='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Value Separator": {
+	  "prefix": "val_separator",
+	  "body": [
+		"val_separator='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"No XSS Check": {
+	  "prefix": "no_xss_check",
+	  "body": [
+		"no_xss_check='1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"CSS": {
+	  "prefix": "css",
+	  "body": [
+		"css='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Body ID": {
+	  "prefix": "body_id",
+	  "body": [
+		"body_id='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Body Class": {
+	  "prefix": "body_class",
+	  "body": [
+		"body_class='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Custom Styles": {
+	  "prefix": "custom_styles",
+	  "body": [
+		"custom_styles='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Toolbar": {
+	  "prefix": "toolbar",
+	  "body": [
+		"toolbar='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Custom Toolbar": {
+	  "prefix": "custom_toolbar",
+	  "body": [
+		"custom_toolbar='$1'"
+	  ],
+	  "description": "CouchCMS/RTFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Option Values": {
+	  "prefix": "opt_values",
+	  "body": [
+		"opt_values='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Option Selected": {
+	  "prefix": "opt_selected",
+	  "body": [
+		"opt_selected='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Buttons": {
+	  "prefix": "buttons",
+	  "body": [
+		"buttons='$1'"
+	  ],
+	  "description": "CouchCMS/NEFieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Decimal Character": {
+	  "prefix": "decimal_character",
+	  "body": [
+		"decimal_character='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Thousands Separator": {
+	  "prefix": "thousands_separator",
+	  "body": [
+		"thousands_separator='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Decimal Precision": {
+	  "prefix": "decimal_precision",
+	  "body": [
+		"decimal_precision='$1'"
+	  ],
+	  "description": "CouchCMS/FieldProp",
+	  "scope": "html, php, inc"
+	},
+	"Number Format": {
+	  "prefix": "number_format",
+	  "body": [
+		"<cms:number_format '$1' />"
+	  ],
+	  "description": "CouchCMS/Field",
+	  "scope": "html, php, inc"
+	},
+	"Content Type": {
+	  "prefix": "content",
+	  "body": [
+		"<cms:content_type '$1' />"
+	  ],
+	  "description": "Example values are 'text/xml', 'text/plain', 'text/css', 'image/gif', 'application/pdf', and 'application/zip'",
+	  "scope": "html, php, inc"
+	},
+	"Dump": {
+	  "prefix": "dump",
+	  "body": [
+		"<cms:if k_user_access_level ge '10' ><cms:dump /></cms:if>"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Dump All": {
+	  "prefix": "dump_all",
+	  "body": [
+		"<cms:if k_user_access_level ge '10' ><cms:dump_all /></cms:if>"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Add Querystring": {
+	  "prefix": "add_querystring",
+	  "body": [
+		"<a href='<cms:add_querystring $1 '$2=$3'/>'>$4</a>"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_is_archive": {
+	  "prefix": "k_is_archive",
+	  "body": [
+		"k_is_archive"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_archive_date": {
+	  "prefix": "k_archive_date",
+	  "body": [
+		"k_archive_date"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_is_list": {
+	  "prefix": "k_is_list",
+	  "body": [
+		"k_is_list"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_day": {
+	  "prefix": "k_day",
+	  "body": [
+		"k_day"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_month": {
+	  "prefix": "k_month",
+	  "body": [
+		"k_month"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_year": {
+	  "prefix": "k_year",
+	  "body": [
+		"k_year"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_next_archive_date": {
+	  "prefix": "k_next_archive_date",
+	  "body": [
+		"k_next_archive_date"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_archive_link": {
+	  "prefix": "k_archive_link",
+	  "body": [
+		"k_archive_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_archive_count": {
+	  "prefix": "k_archive_count",
+	  "body": [
+		"k_archive_count"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_count": {
+	  "prefix": "k_count",
+	  "body": [
+		"k_count"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_user_id": {
+	  "prefix": "k_user_id",
+	  "body": [
+		"k_user_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_user_title": {
+	  "prefix": "k_user_title",
+	  "body": [
+		"k_user_title"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_user_email": {
+	  "prefix": "k_user_email",
+	  "body": [
+		"k_user_email"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_user_disabled": {
+	  "prefix": "k_user_disabled",
+	  "body": [
+		"k_user_disabled"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_logged_out": {
+	  "prefix": "k_logged_out",
+	  "body": [
+		"k_logged_out"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_user_name": {
+	  "prefix": "k_user_name",
+	  "body": [
+		"k_user_name"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_site_link": {
+	  "prefix": "k_site_link",
+	  "body": [
+		"k_site_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_site_path": {
+	  "prefix": "k_site_path",
+	  "body": [
+		"k_site_path"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_admin_path": {
+	  "prefix": "k_admin_path",
+	  "body": [
+		"k_admin_path"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_admin_link": {
+	  "prefix": "k_admin_link",
+	  "body": [
+		"k_admin_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_admin_page": {
+	  "prefix": "k_admin_page",
+	  "body": [
+		"k_admin_page"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_modification_date": {
+	  "prefix": "k_page_modification_date",
+	  "body": [
+		"k_page_modification_date"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_link": {
+	  "prefix": "k_page_link",
+	  "body": [
+		"k_page_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_title": {
+	  "prefix": "k_page_title",
+	  "body": [
+		"k_page_title"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_id": {
+	  "prefix": "k_page_id",
+	  "body": [
+		"k_page_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folder_id": {
+	  "prefix": "k_page_folder_id",
+	  "body": [
+		"k_page_folder_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_name": {
+	  "prefix": "k_page_name",
+	  "body": [
+		"k_page_name"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_date": {
+	  "prefix": "k_page_date",
+	  "body": [
+		"k_page_date"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_comments_count": {
+	  "prefix": "k_comments_count",
+	  "body": [
+		"k_comments_count"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_folder_pagecount": {
+	  "prefix": "k_folder_pagecount",
+	  "body": [
+		"k_folder_pagecount"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderid": {
+	  "prefix": "k_page_folderid",
+	  "body": [
+		"k_page_folderid"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_foldername": {
+	  "prefix": "k_page_foldername",
+	  "body": [
+		"k_page_foldername"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_foldertitle": {
+	  "prefix": "k_page_foldertitle",
+	  "body": [
+		"k_page_foldertitle"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderdesc": {
+	  "prefix": "k_page_folderdesc",
+	  "body": [
+		"k_page_folderdesc"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderimage": {
+	  "prefix": "k_page_folderimage",
+	  "body": [
+		"k_page_folderimage"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderlink": {
+	  "prefix": "k_page_folderlink",
+	  "body": [
+		"k_page_folderlink"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderpagecount": {
+	  "prefix": "k_page_folderpagecount",
+	  "body": [
+		"k_page_folderpagecount"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_foldertotalpagecount": {
+	  "prefix": "k_page_foldertotalpagecount",
+	  "body": [
+		"k_page_foldertotalpagecount"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderparentid": {
+	  "prefix": "k_page_folderparentid",
+	  "body": [
+		"k_page_folderparentid"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_page_folderweight": {
+	  "prefix": "k_page_folderweight",
+	  "body": [
+		"k_page_folderweight"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_title": {
+	  "prefix": "k_template_title",
+	  "body": [
+		"k_template_title"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_name": {
+	  "prefix": "k_template_name",
+	  "body": [
+		"k_template_name"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_id": {
+	  "prefix": "k_template_id",
+	  "body": [
+		"k_template_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_desc": {
+	  "prefix": "k_template_desc",
+	  "body": [
+		"k_template_desc"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_access_level": {
+	  "prefix": "k_template_access_level",
+	  "body": [
+		"k_template_access_level"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_order": {
+	  "prefix": "k_template_order",
+	  "body": [
+		"k_template_order"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_template_link": {
+	  "prefix": "k_template_link",
+	  "body": [
+		"k_template_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_email_from": {
+	  "prefix": "k_email_from",
+	  "body": [
+		"k_email_from"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_email_to": {
+	  "prefix": "k_email_to",
+	  "body": [
+		"k_email_to"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_is_home": {
+	  "prefix": "k_is_home",
+	  "body": [
+		"k_is_home"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_is_folder": {
+	  "prefix": "k_is_folder",
+	  "body": [
+		"k_is_folder"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_folder_id": {
+	  "prefix": "k_folder_id",
+	  "body": [
+		"k_folder_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_folder_name": {
+	  "prefix": "k_folder_name",
+	  "body": [
+		"k_folder_name"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_folder_title": {
+	  "prefix": "k_folder_title",
+	  "body": [
+		"k_folder_title"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_folder_link": {
+	  "prefix": "k_folder_link",
+	  "body": [
+		"k_folder_link"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_up_down": {
+	  "prefix": "k_up_down",
+	  "body": [
+		"k_up_down"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Extended Info": {
+	  "prefix": "extended_info",
+	  "body": [
+		"extended_info='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Child Of": {
+	  "prefix": "childof",
+	  "body": [
+		"childof='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Exclude": {
+	  "prefix": "exclude",
+	  "body": [
+		"exclude='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_level": {
+	  "prefix": "k_level",
+	  "body": [
+		"k_level"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Depth": {
+	  "prefix": "depth",
+	  "body": [
+		"depth='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Root": {
+	  "prefix": "root",
+	  "body": [
+		"root='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_level_start": {
+	  "prefix": "k_level_start",
+	  "body": [
+		"k_level_start"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_element_start": {
+	  "prefix": "k_element_start",
+	  "body": [
+		"k_element_start"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_element_end": {
+	  "prefix": "k_element_end",
+	  "body": [
+		"k_element_end"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_level_end": {
+	  "prefix": "k_level_end",
+	  "body": [
+		"k_level_end"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Ancestor": {
+	  "prefix": "ancestor",
+	  "body": [
+		"<cms:is_ancestor parent='$1' child='$2'/>"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Parent": {
+	  "prefix": "parent",
+	  "body": [
+		"parent='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Child": {
+	  "prefix": "child",
+	  "body": [
+		"child='$1'"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Cloak Email": {
+	  "prefix": "cloak_email",
+	  "body": [
+		"<cms:cloak_email email='$1' title='$2' msg='No JavaScript ?!!' />"
+	  ],
+	  "description": "CouchCMS/CloakMail",
+	  "scope": "html, php, inc"
+	},
+	"Cloak URL": {
+	  "prefix": "cloak_url",
+	  "body": [
+		"<a href='<cms:cloak_url link='$1' />'>$2</a>"
+	  ],
+	  "description": "CouchCMS/CloakURL",
+	  "scope": "html, php, inc"
+	},
+	"Force Download": {
+	  "prefix": "force_download",
+	  "body": [
+		"force_download='1'"
+	  ],
+	  "description": "CouchCMS/CloakURL",
+	  "scope": "html, php, inc"
+	},
+	"Access Level": {
+	  "prefix": "access_level",
+	  "body": [
+		"access_level='$1'"
+	  ],
+	  "description": "CouchCMS/CloakURL",
+	  "scope": "html, php, inc"
+	},
+	"Prompt Login": {
+	  "prefix": "prompt_login",
+	  "body": [
+		"prompt_login='1'"
+	  ],
+	  "description": "CouchCMS/CloakURL",
+	  "scope": "html, php, inc"
+	},
+	"HTML Encode": {
+	  "prefix": "html_encode",
+	  "body": [
+		"<cms:html_encode>",
+		" $1",
+		"</cms:html_encode>"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_last_insert_id": {
+	  "prefix": "k_last_insert_id",
+	  "body": [
+		"k_last_insert_id"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"k_last_insert_page_name": {
+	  "prefix": "k_last_insert_page_name",
+	  "body": [
+		"k_last_insert_page_name"
+	  ],
+	  "description": "CouchCMS/System",
+	  "scope": "html, php, inc"
+	},
+	"Show": {
+	  "prefix": "show",
+	  "body": [
+		"<cms:show $1 />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Show Global": {
+	  "prefix": "show_global",
+	  "body": [
+		"<cms:show_globals masterpage='$1.php' >",
+		" $2 ",
+		"</cms:show_globals>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Date": {
+	  "prefix": "date",
+	  "body": [
+		"<cms:date $1 format='$2'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Locale": {
+	  "prefix": "locale",
+	  "body": [
+		"locale='$1'"
+	  ],
+	  "description": "CouchCMS/DateType",
+	  "scope": "html, php, inc"
+	},
+	"Charset": {
+	  "prefix": "charset",
+	  "body": [
+		"charset='$1'"
+	  ],
+	  "description": "CouchCMS/DateType",
+	  "scope": "html, php, inc"
+	},
+	"Format": {
+	  "prefix": "format",
+	  "body": [
+		"format='$1'"
+	  ],
+	  "description": "CouchCMS/DateType",
+	  "scope": "html, php, inc"
+	},
+	"GMT": {
+	  "prefix": "gmt",
+	  "body": [
+		"gmt='$1'"
+	  ],
+	  "description": "CouchCMS/DateType",
+	  "scope": "html, php, inc"
+	},
+	"If": {
+	  "prefix": "if",
+	  "body": [
+		"<cms:if $1 > $2 </cms:if>"
+	  ],
+	  "description": "CouchCMS/IfTag",
+	  "scope": "html, php, inc"
+	},
+	"Else If": {
+	  "prefix": "else_if",
+	  "body": [
+		"<cms:else_if $1 />"
+	  ],
+	  "description": "CouchCMS/IfTag",
+	  "scope": "html, php, inc"
+	},
+	"Else": {
+	  "prefix": "else",
+	  "body": [
+		"<cms:else />"
+	  ],
+	  "description": "CouchCMS/IfTag",
+	  "scope": "html, php, inc"
+	},
+	"Set": {
+	  "prefix": "set",
+	  "body": [
+		"<cms:set $1='$2' scope='$3' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Get": {
+	  "prefix": "get",
+	  "body": [
+		"<cms:get $1 />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Get Field": {
+	  "prefix": "get_field",
+	  "body": [
+		"<cms:get_field '$1' masterpage='$2.php' $3 />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Get Global": {
+	  "prefix": "get_global",
+	  "body": [
+		"<cms:get_global '$1' masterpage='$2.php' $3 />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Add": {
+	  "prefix": "add",
+	  "body": [
+		"<cms:add $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag <cms:add my_count '1' />",
+	  "scope": "html, php, inc"
+	},
+	"Decrement": {
+	  "prefix": "decr",
+	  "body": [
+		"<cms:decr $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Increment": {
+	  "prefix": "incr",
+	  "body": [
+		"<cms:incr $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Subtract": {
+	  "prefix": "sub",
+	  "body": [
+		"<cms:sub $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Multiply": {
+	  "prefix": "mul",
+	  "body": [
+		"<cms:mul $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Divide": {
+	  "prefix": "div",
+	  "body": [
+		"<cms:div $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Modulus": {
+	  "prefix": "mod",
+	  "body": [
+		"<cms:mod $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/CalculationTag",
+	  "scope": "html, php, inc"
+	},
+	"Breadcrumbs": {
+	  "prefix": "breadcrumbs",
+	  "body": [
+		"<cms:breadcrumbs separator='&nbsp;$1&nbsp;' include_template='$2'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Dropdown Folders": {
+	  "prefix": "dropdownfolders",
+	  "body": [
+		"<cms:dropdownfolders masterpage='$1'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Capture": {
+	  "prefix": "capture",
+	  "body": [
+		"<cms:capture into='$1' scope='$2'></cms:capture>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Block": {
+	  "prefix": "block",
+	  "body": [
+		"<cms:block '$1'>",
+		" $2",
+		"</cms:block>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Embed": {
+	  "prefix": "embed",
+	  "body": [
+		"<cms:embed '$1.html' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Extends": {
+	  "prefix": "extends",
+	  "body": [
+		"<cms:extends '$1.html' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Block Parent": {
+	  "prefix": "block_parent",
+	  "body": [
+		"<cms:block_parent />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Delete Cookie": {
+	  "prefix": "delete_cookie",
+	  "body": [
+		"<cms:delete_cookie '$1'/>"
+	  ],
+	  "description": "CouchCMS/CookieTag",
+	  "scope": "html, php, inc"
+	},
+	"Set Cookie": {
+	  "prefix": "set_cookie",
+	  "body": [
+		"<cms:set_cookie name='$1' value='$2' expire='$3'/>"
+	  ],
+	  "description": "CouchCMS/CookieTag",
+	  "scope": "html, php, inc"
+	},
+	"Get Cookie": {
+	  "prefix": "get_cookie",
+	  "body": [
+		"<cms:get_cookie '$1'/>"
+	  ],
+	  "description": "CouchCMS/CookieTag",
+	  "scope": "html, php, inc"
+	},
+	"Get GPC": {
+	  "prefix": "get_gpc",
+	  "body": [
+		"<cms:gpc '$1' method='$2' />"
+	  ],
+	  "description": "CouchCMS/CookieTag",
+	  "scope": "html, php, inc"
+	},
+	"Exists": {
+	  "prefix": "exists",
+	  "body": [
+		"<cms:exists '$1' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Gravatar": {
+	  "prefix": "gravatar",
+	  "body": [
+		"<cms:gravatar email='$1' size='$2' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Hide": {
+	  "prefix": "hide",
+	  "body": [
+		"<cms:hide>",
+		" $1 ",
+		"</cms:hide>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Ignore": {
+	  "prefix": "ignore",
+	  "body": [
+		"<cms:ignore>",
+		" $1 ",
+		"</cms:ignore>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Query": {
+	  "prefix": "query",
+	  "body": [
+		"<cms:query $1 >",
+		" $2 ",
+		"</cms:query>"
+	  ],
+	  "description": "CouchCMS/MysqlTag",
+	  "scope": "html, php, inc"
+	},
+	"No Results": {
+	  "prefix": "no_results",
+	  "body": [
+		"<cms:no_results> $1 </cms:no_results>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"PHP": {
+	  "prefix": "php",
+	  "body": [
+		"<cms:php></cms:php>"
+	  ],
+	  "description": "CouchCMS/PHPTag",
+	  "scope": "html, php, inc"
+	},
+	"Add Slashes": {
+	  "prefix": "addslashes",
+	  "body": [
+		"<cms:addslashes quote='$1'>$2</cms:addslashes>"
+	  ],
+	  "description": "CouchCMS/PHPTag",
+	  "scope": "html, php, inc"
+	},
+	"Not": {
+	  "prefix": "not",
+	  "body": [
+		"<cms:not $1 '$2'/>"
+	  ],
+	  "description": "CouchCMS/IfTag",
+	  "scope": "html, php, inc"
+	},
+	"Set Session": {
+	  "prefix": "set_session",
+	  "body": [
+		"<cms:set_session name='$1' value='$2'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Get Session": {
+	  "prefix": "get_session",
+	  "body": [
+		"<cms:get_session '$1'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Delete Session": {
+	  "prefix": "delete_session",
+	  "body": [
+		"<cms:delete_session '$1'/>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Set Flash": {
+	  "prefix": "set_flash",
+	  "body": [
+		"<cms:set_flash name='$1' value='$2'/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Get Flash": {
+	  "prefix": "get_flash",
+	  "body": [
+		"<cms:get_flash '$1'/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Form": {
+	  "prefix": "form",
+	  "body": [
+		"<cms:form $1 >$2 ",
+		"<input type='submit' name='submit' class='$3' value='$4'/>$5",
+		"</cms:form>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Redirect": {
+	  "prefix": "redirect",
+	  "body": [
+		"<cms:redirect '$1'/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Mode": {
+	  "prefix": "mode",
+	  "body": [
+		"mode='$1'"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Page ID": {
+	  "prefix": "page_id",
+	  "body": [
+		"page_id='$1'"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Enctype": {
+	  "prefix": "enctype",
+	  "body": [
+		"enctype='multipart/form-data'"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Method": {
+	  "prefix": "method",
+	  "body": [
+		"method='$1'"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Anchor": {
+	  "prefix": "anchor",
+	  "body": [
+		"anchor='$1'"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Is Commentable": {
+	  "prefix": "k_is_commentable",
+	  "body": [
+		"<cms:if k_is_commentable > ",
+		"$1",
+		"</cms:if>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Success": {
+	  "prefix": "k_success",
+	  "body": [
+		"<cms:if k_success > ",
+		"$1",
+		"</cms:if>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Error": {
+	  "prefix": "k_error",
+	  "body": [
+		"<cms:if k_error > ",
+		"$1",
+		"</cms:if>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"DB Persist Form": {
+	  "prefix": "db_persist_form",
+	  "body": [
+		"<cms:db_persist_form ",
+		"_invalidate_cache='0'",
+		"$2 ",
+		"/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Input": {
+	  "prefix": "input",
+	  "body": [
+		"<cms:input name='$1' type='$2' $3 />"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Value": {
+	  "prefix": "value",
+	  "body": [
+		"value='$1'"
+	  ],
+	  "description": "CouchCMS/FormType",
+	  "scope": "html, php, inc"
+	},
+	"Show Repeatable": {
+	  "prefix": "show_repeatable",
+	  "body": [
+		"<cms:show_repeatable '$1' >",
+		"$2",
+		"</cms:show_repeatable>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Search": {
+	  "prefix": "search",
+	  "body": [
+		"<cms:search limit='$1' $2>"
+	  ],
+	  "description": "CouchCMS/FormType",
+	  "scope": "html, php, inc"
+	},
+	"Show Mosaic": {
+	  "prefix": "show_mosaic",
+	  "body": [
+		"<cms:show_mosaic '$1' >",
+		"$2",
+		"</cms:show_mosaic>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Google Map": {
+	  "prefix": "google_map",
+	  "body": [
+		"<cms:google_map name='$1'",
+		" latitude='$2'",
+		" longitude='$3'",
+		" zoom='$4'",
+		" message='$5'",
+		" width='$6'",
+		" height='$7'",
+		" style='$8'",
+		"/>"
+	  ],
+	  "description": "CouchCMS/GoogleTag",
+	  "scope": "html, php, inc"
+	},
+	"Global": {
+	  "prefix": "global",
+	  "body": [
+		"global $1"
+	  ],
+	  "description": "CouchCMS/PHP",
+	  "scope": "html, php, inc"
+	},
+	"CTX": {
+	  "prefix": "CTX",
+	  "body": [
+		"CTX;"
+	  ],
+	  "description": "CouchCMS/PHP",
+	  "scope": "html, php, inc"
+	},
+	"CTX->get": {
+	  "prefix": "CTX->get",
+	  "body": [
+		"CTX->get('$1');"
+	  ],
+	  "description": "CouchCMS/PHP",
+	  "scope": "html, php, inc"
+	},
+	"CTX->set": {
+	  "prefix": "CTX->set",
+	  "body": [
+		"CTX->set('$1','$2','global');"
+	  ],
+	  "description": "CouchCMS/PHP",
+	  "scope": "html, php, inc"
+	},
+	"Validate Nonce": {
+	  "prefix": "validate_nonce",
+	  "body": [
+		"<cms:validate_nonce $1/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Create Nonce": {
+	  "prefix": "create_nonce",
+	  "body": [
+		"<cms:create_nonce $1/>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Link A": {
+	  "prefix": "linka",
+	  "body": [
+		"<a href='<cms:link '$1' $2/>' >$3</a>"
+	  ],
+	  "description": "CouchCMS/LinkTag",
+	  "scope": "html, php, inc"
+	},
+	"Link": {
+	  "prefix": "link",
+	  "body": [
+		"<cms:link '$1'/>"
+	  ],
+	  "description": "CouchCMS/LinkTag",
+	  "scope": "html, php, inc"
+	},
+	"Year": {
+	  "prefix": "year",
+	  "body": [
+		"year='$1'"
+	  ],
+	  "description": "CouchCMS/LinkTag",
+	  "scope": "html, php, inc"
+	},
+	"Month": {
+	  "prefix": "month",
+	  "body": [
+		"month='$1'"
+	  ],
+	  "description": "CouchCMS/LinkTag",
+	  "scope": "html, php, inc"
+	},
+	"Day": {
+	  "prefix": "day",
+	  "body": [
+		"day='$1'"
+	  ],
+	  "description": "CouchCMS/LinkTag",
+	  "scope": "html, php, inc"
+	},
+	"Show Count": {
+	  "prefix": "show_count",
+	  "body": [
+		"show_count='1'"
+	  ],
+	  "description": "CouchCMS/ListfoldersType",
+	  "scope": "html, php, inc"
+	},
+	"PHP Couch Page": {
+	  "prefix": "php_couch_page",
+	  "body": [
+		"<?php require_once( '$1/cms.php' ); ?>",
+		"<cms:template title='$2' parent='_$3_' icon='$4' clonable='0$5' dynamic_folders='0$6' has_subtemplates='0$7' subtpl_selector_label='$8' subtpl_selector_is_advanced='0$9' $10>",
+		" $11 ",
+		"</cms:template>",
+		"<?php COUCH::invoke(); ?>"
+	  ],
+	  "description": "CouchCMS/Snippet",
+	  "scope": "html, php, inc"
+	},
+	"Globals Editable": {
+	  "prefix": "globals_editable",
+	  "body": [
+		"<cms:globals>",
+		" $1 ",
+		"</cms:globals>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Repeat": {
+	  "prefix": "repeat",
+	  "body": [
+		"<cms:repeat count='$1' $2>",
+		" $3",
+		"</cms:repeat>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Each": {
+	  "prefix": "each",
+	  "body": [
+		"<cms:each var=$1 $2 >",
+		" $3",
+		"</cms:each>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"As": {
+	  "prefix": "as",
+	  "body": [
+		"as='$1'"
+	  ],
+	  "description": "CouchCMS/EachType",
+	  "scope": "html, php, inc"
+	},
+	"Sep": {
+	  "prefix": "sep",
+	  "body": [
+		"sep='$1'"
+	  ],
+	  "description": "CouchCMS/EachType",
+	  "scope": "html, php, inc"
+	},
+	"Zebra": {
+	  "prefix": "zebra",
+	  "body": [
+		"<cms:zebra '$1' $2 />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Fieldset": {
+	  "prefix": "fieldset",
+	  "body": [
+		"<cms:fieldset> ",
+		"$1",
+		"</cms:fieldset>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Admin Wrapper": {
+	  "prefix": "admin_wrapper",
+	  "body": [
+		"<div id='admin-wrapper-body'>",
+		"$1",
+		"</div>"
+	  ],
+	  "description": "CouchCMS/FormTag",
+	  "scope": "html, php, inc"
+	},
+	"Smart Embed": {
+	  "prefix": "smart_embed",
+	  "body": [
+		"<cms:smart_embed '$1' />"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"Excerpt HTML": {
+	  "prefix": "excerptHTML",
+	  "body": [
+		"<cms:excerptHTML count='$1' ignore='img, table$2' $3>",
+		" $4 ",
+		"</cms:excerptHTML>"
+	  ],
+	  "description": "Insert an ExcerptHTML tag with parameters: \n - count \n - ignore \n - trail \n For trail \n By default the produced excerpt is appended with '...' (three ellipses). You can change this by using this parameter. \n <cms:excerptHTML trail=\"&nbsp;(<a href=\"<cms:show k_page_link />\">read more..</a>)\"><cms:show blog_content /></cms:excerptHTML>",
+	  "scope": "html, php, inc"
+	},
+	"Excerpt": {
+	  "prefix": "excerpt",
+	  "body": [
+		"<cms:excerpt count='$1' allow='$2' trail='$3' truncate_chars='$4'>",
+		" $3 ",
+		"</cms:excerpt>"
+	  ],
+	  "description": "Insert an Excerpt tag with parameters: \n - count \n - allow \n - trail \n - truncate_chars",
+	  "scope": "html, php, inc"
+	},
+	"Do Shortcodes": {
+	  "prefix": "do_shortcodes",
+	  "body": [
+		"<cms:do_shortcodes>$1</cms:do_shortcodes>"
+	  ],
+	  "description": "CouchCMS/Tag",
+	  "scope": "html, php, inc"
+	},
+	"No Edit": {
+	  "prefix": "no_edit",
+	  "body": [
+		"<cms:no_edit />"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Load Edit": {
+	  "prefix": "load_edit",
+	  "body": [
+		"<cms:load_edit no_border='1' $1/>"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Skip CKEditor": {
+	  "prefix": "skip_ckeditor",
+	  "body": [
+		"skip_ckeditor='1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Prompt Text": {
+	  "prefix": "prompt_text",
+	  "body": [
+		"prompt_text='$1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Link Text": {
+	  "prefix": "link_text",
+	  "body": [
+		"link_text='$1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Popup Edit": {
+	  "prefix": "popup_edit",
+	  "body": [
+		"<cms:popup_edit '$1' />"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Inline Edit": {
+	  "prefix": "inline_edit",
+	  "body": [
+		"<cms:inline_edit '$1' />"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Advanced GUI": {
+	  "prefix": "advanced_gui",
+	  "body": [
+		"advanced_gui='$1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Show Manage": {
+	  "prefix": "show_manage",
+	  "body": [
+		"show_manage='$1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Template Code": {
+	  "prefix": "template_code",
+	  "body": [
+		"template_code='$1'"
+	  ],
+	  "description": "CouchCMS/EditTag",
+	  "scope": "html, php, inc"
+	},
+	"Member Logged Out": {
+	  "prefix": "k_member_logged_out",
+	  "body": [
+		"k_member_logged_out"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Logged In": {
+	  "prefix": "k_member_logged_in",
+	  "body": [
+		"k_member_logged_in"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Check Login": {
+	  "prefix": "member_check_login",
+	  "body": [
+		"<cms:member_check_login />"
+	  ],
+	  "description": "CouchCMS/MemberTag",
+	  "scope": "html, php, inc"
+	},
+	"Member Process Login Form": {
+	  "prefix": "member_process_login_form",
+	  "body": [
+		"<cms:member_process_login_form />"
+	  ],
+	  "description": "CouchCMS/MemberTag",
+	  "scope": "html, php, inc"
+	},
+	"Member Login Link": {
+	  "prefix": "member_login_link",
+	  "body": [
+		"<cms:member_login_link />"
+	  ],
+	  "description": "CouchCMS/MemberTag",
+	  "scope": "html, php, inc"
+	},
+	"Member ID": {
+	  "prefix": "k_member_id",
+	  "body": [
+		"k_member_id"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Template": {
+	  "prefix": "k_member_template",
+	  "body": [
+		"k_member_template"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Name": {
+	  "prefix": "k_member_name",
+	  "body": [
+		"k_member_name"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Title": {
+	  "prefix": "k_member_title",
+	  "body": [
+		"k_member_title"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Email": {
+	  "prefix": "k_member_email",
+	  "body": [
+		"k_member_email"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Creation Date": {
+	  "prefix": "k_member_creation_date",
+	  "body": [
+		"k_member_creation_date"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Creation IP": {
+	  "prefix": "k_member_creation_ip",
+	  "body": [
+		"k_member_creation_ip"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Active": {
+	  "prefix": "k_member_active",
+	  "body": [
+		"k_member_active"
+	  ],
+	  "description": "CouchCMS/Members",
+	  "scope": "html, php, inc"
+	},
+	"Member Logout Link": {
+	  "prefix": "member_logout_link",
+	  "body": [
+		"<cms:member_logout_link />"
+	  ],
+	  "description": "CouchCMS/MemberTag",
+	  "scope": "html, php, inc"
+	},
+	"Member Process Registration Form": {
+	  "prefix": "member_process_registration_form",
+	  "body": [
+		"<cms:member_process_registration_form/>"
+	  ],
+	  "description": "CouchCMS/MemberTag",
+	  "scope": "html, php, inc"
+	},
+	"Tile Name": {
+	  "prefix": "k_tile_name",
+	  "body": [
+		"k_tile_name"
+	  ],
+	  "description": "CouchCMS/Mosaic",
+	  "scope": "html, php, inc"
+	},
+	"WCDN": {
+	  "prefix": "wcdn",
+	  "body": [
+		"//wsrv.nl/?url=$1&output=webp"
+	  ],
+	  "description": "Wsrv.nl CDN Link",
+	  "scope": "html, php, inc"
+	},
+  }

@@ -1,0 +1,24 @@
+<cms:func 'load-view' debug="<cms:gpc 'debug' default='0'/>"><cms:ignore>
+   ---
+   Router for views.
+   Example -
+
+      <cms:call 'load-view' />
+
+   ---
+   </cms:ignore>
+   <cms:if k_template_routable>
+      <cms:match_route debug=debug />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/<cms:show k_matched_route />" debug=debug />
+   <cms:else_if k_is_page />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/page" debug=debug />
+   <cms:else_if k_is_folder />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/folder" debug=debug />
+   <cms:else_if k_is_archive />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/archive" debug=debug />
+   <cms:else_if k_template_is_clonable />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/list" debug=debug />
+   <cms:else />
+      <cms:smart_embed "views/<cms:show k__template_name_safe_ex />/home" debug=debug />
+   </cms:if>
+</cms:func>

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'innepall';
+  src:  url('fonts/innepall.eot?4u6kyv');
+  src:  url('fonts/innepall.eot?4u6kyv#iefix') format('embedded-opentype'),
+    url('fonts/innepall.ttf?4u6kyv') format('truetype'),
+    url('fonts/innepall.woff?4u6kyv') format('woff'),
+    url('fonts/innepall.svg?4u6kyv#innepall') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'innepall';
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.in-logo:before {
+  content: "\e900";
+}
+.in-logo-icon:before {
+  content: "\e901";
+}

@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"name": "memo",
+			"path": "../memo"
+		},
+		{
+			"name": "in",
+			"path": "../in"
+		},
+		{
+			"name": "news",
+			"path": "../news"
+		},
+		{
+			"name": "bvr",
+			"path": "../bvr"
+		},
+		{
+			"name": "ssc",
+			"path": "../ssc"
+		},
+		{
+			"name": "inn",
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": true
+	}
+}

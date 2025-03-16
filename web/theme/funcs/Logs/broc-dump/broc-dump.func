@@ -1,0 +1,36 @@
+<cms:func 'broc-dump'><cms:ignore>
+   ---
+   Open browser's console to see available variables and values.
+   Example -
+
+      <cms:call 'broc-dump' />
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   </cms:ignore>
+   <cms:php>
+      global $CTX;
+      for( $x=0; $x<count($CTX->ctx); $x++ )
+      {
+         $k = $CTX->ctx[$x];
+         if( !isset($k['_scope_']) ) continue;
+         if( $k['name'] == '__call__' && $k['_scope_']['k_func'] == 'broc-dump' ) continue;
+         $body = array();
+         foreach( $k['_scope_'] as $key=>$val )
+         {
+           if( is_array($val) ){
+              $body['ARRAYS'][$key]=$val;
+           } else {
+              $body[$key]=$val;
+           }
+         }
+         $title = "'%c .:: Context of CouchCMS (".$k['name'].") ::.', 'display:block; border: thin double #32a1ce; padding:2px; font-style:italic;'";
+         echo '<script>', 'console.log('.$title.');';
+         echo 'console.dir('.json_encode($body, true).');';
+         echo 'console.log("%c .:: end of '.$k['name'].' context ::.", "font-style:italic; display:block; border: thin double #32a1ce; padding:2px;");';
+         echo '</script>';
+      }
+    </cms:php>
+</cms:func>

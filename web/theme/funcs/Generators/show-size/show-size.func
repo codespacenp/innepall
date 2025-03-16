@@ -1,0 +1,41 @@
+<cms:func 'show-size' file='' decimal_precision='' bytes_only='0'><cms:ignore>
+   ---
+   Size of file in human-friendly form or in pure bytes
+   Example -
+
+      <cms:call 'show-size' "<cms:show k_admin_path />tags.php" />
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   @date   24.02.2019
+   @last   20.08.2022
+   </cms:ignore>
+   <cms:php>
+      global $CTX;
+
+      $file = trim( strval( $CTX->get('file', $local=1) ), "// \\" );
+      $path = K_SITE_DIR . str_replace( array( K_SITE_URL, K_SITE_DIR, '\\' ), array( '', '', '/' ), $file );
+
+      $fh = fopen($path, 'r');
+      fseek($fh, 0, SEEK_END);
+      $filesize = intval(ftell($fh));
+      fclose($fh);
+
+      $bytes_only = trim( $CTX->get('bytes_only') );
+      if( $bytes_only ) return $filesize;
+
+      if( $filesize == 0 ) return '0 Bytes';
+      if( $filesize == 1 ) return '1 Byte';
+
+      $unit = array('Bytes','Kb','Mb','Gb','Tb','Pb');
+      $unit_precision = array( $bytes=0, $kb=0, $mb=1, $gb=3, $tb=6, $pb=6);
+      $decimal_precision = trim( $CTX->get('decimal_precision') );
+      if( $decimal_precision != '' ){
+         $unit_precision = array_fill(0, count($unit), intval($decimal_precision));
+      }
+      $text = @round( $filesize/pow(1024,($i=floor(log($filesize,1024)))),$unit_precision[$i] ).' '.$unit[$i];
+      return $text;
+    </cms:php>
+</cms:func>

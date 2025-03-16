@@ -1,0 +1,21 @@
+<cms:func 'day-name' day="<cms:date format='w' />" locale='' charset='' ><cms:ignore>
+   ---
+   Show locale-aware day name e.g. "Monday" for '1' or current day name.
+   Example -
+
+      <cms:call 'day-name' />
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   @date   10.02.2019
+   @last   14.07.2022
+   </cms:ignore>
+    <cms:set is_valid_day = "<cms:validate value=day validator='non_negative_integer' />"/>
+    <cms:if "<cms:not is_valid_day />" >
+        <cms:set day = "<cms:date format='w' />" />
+    </cms:if>
+    <cms:ignore>2018 started with Monday, so it is easy to extrapolate</cms:ignore>
+    <cms:date "2018-01-01 +<cms:sub day '1' /> day" format='%A' locale=locale charset=charset />
+</cms:func>

@@ -1,0 +1,14 @@
+<cms:func 'log-dump' file='' ><cms:ignore>
+    ---
+    Saves output of "dump_all" to HTML file.
+    <cms:call 'log-dump' />
+    ---
+    You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+    Donate and help keep functions updated!
+    Support requests: tony.smirnov@gmail.com "Antony"
+    </cms:ignore>
+    <cms:log
+        msg  = "<br><cms:dump_all /><br>"
+        file = "<cms:get 'file' default='my_log.html' />"
+    />
+</cms:func>

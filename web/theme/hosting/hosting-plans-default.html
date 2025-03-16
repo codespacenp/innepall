@@ -1,0 +1,10 @@
+<cms:extends 'base.html' />
+<cms:block 'container'>
+    <cms:embed 'partials/breadcrumb.html' />
+    <cms:if k_is_list>
+        <cms:embed 'hosting/plans/list.html' />
+        <cms:else_if k_is_page />
+        <cms:embed 'hosting/plans/single.html' />
+    </cms:if>
+    <cms:block_parent />
+</cms:block>

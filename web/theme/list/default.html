@@ -1,0 +1,14 @@
+<cms:extends 'base.html' />
+<cms:block 'container'>
+    <div class="card">
+        <div class="card-body">
+            <cms:call 'show-icons' />
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <cms:list_tags />
+        </div>
+    </div>
+    <cms:block_parent />
+</cms:block>

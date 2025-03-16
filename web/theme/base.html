@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
+
+<head>
+    <cms:embed 'partials/head.html' />
+    <title>
+        <cms:get_field 'sitetitle' masterpage='index.php' />
+    </title>
+</head>
+
+<body>
+    <!-- Toast -->
+    <div class="toast toast-onload align-items-center text-bg-primary border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-body hstack align-items-start gap-6">
+            <i class="ti ti-alert-circle fs-6"></i>
+            <div>
+                <h5 class="text-white fs-3 mb-1 lh-sm">
+                    <cms:get_field 'sitetitle' masterpage='index.php' />
+                </h5>
+                <h6 class="text-white fs-2 mb-0 lh-sm">Your Guide to the Nepal's Finest Products!!!</h6>
+            </div>
+            <button type="button" class="btn-close btn-close-white fs-2 m-0 ms-auto shadow-none" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- Preloader -->
+    <!-- <div class="preloader">
+        <img src="<cms:thumbnail src=" <cms:thumbnail src="<cms:get_field 'favicon' masterpage='info.php' />" height='57' enforce_max='1' />" alt="loader" class="lds-ripple img-fluid" />
+    </div> -->
+    <div id="main-wrapper">
+        <!-- Sidebar Start -->
+        <aside class="side-mini-panel with-vertical">
+            <cms:embed 'partials/sidebar.html' />
+        </aside>
+        <!--  Sidebar End -->
+        <div class="page-wrapper">
+            <!--  Header Start -->
+            <header class="topbar">
+                <div class="with-vertical">
+                    <cms:embed 'partials/header.html' />
+                </div>
+                <div class="app-header with-horizontal">
+                    <cms:embed 'partials/horizontal-header.html' />
+                </div>
+            </header>
+            <!--  Header End -->
+            <aside class="left-sidebar with-horizontal">
+                <cms:embed 'partials/horizontal-sidebar.html' />
+            </aside>
+            <div class="body-wrapper">
+                <div class="container-fluid">
+                    <cms:block 'container'>
+                        <div class="card">
+                            <div class="card-body">
+                                <cms:if k_user_access_level ge '10'>
+
+                                    <cms:dump />
+                                </cms:if>
+                            </div>
+                        </div>
+                    </cms:block>
+                </div>
+            </div>
+            <cms:embed 'partials/customizer.html' />
+        </div>
+        <cms:embed 'partials/header-components/dd-searchbar.html' />
+    </div>
+    <div class="dark-transparent sidebartoggler"></div>
+    <cms:embed 'partials/scripts.html' />
+</body>
+
+</html>

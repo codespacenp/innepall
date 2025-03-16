@@ -11,7 +11,7 @@
     // 1.
     // If necessary, define the full URL of your site including the subdomain, if any.
     // V.IMP: Don't forget the trailing slash!
-    //define( 'K_SITE_URL', 'http://www.test.com/subfolder1/subfolder2/mysite/' );
+    define( 'K_SITE_URL', 'https://super-space-goldfish-qp65wvg5x463x969-80.app.github.dev/' );
 
     // 1b.
     // For security purpose, the 'index.php' file of Couch can be renamed to anything else.

@@ -1,6 +1,8 @@
 <cms:extends 'base.html' />
 <cms:block 'container'>
+<cms:ignore>
     <img src="<cms:thumbnail logo width='128' height='128' enforce_max='1' />">
     <img src="<cms:thumbnail screenshot width='1024' enforce_max='1' />">
+</cms:ignore>
     <cms:block_parent />
 </cms:block>

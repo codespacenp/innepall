@@ -1,0 +1,38 @@
+    <div class="company-profile"></div>
+        <h1><cms:show nepali_name /></h1>
+        <img src="<cms:show logo />" alt="<cms:show nepali_name /> Logo">
+        <p><cms:show about /></p>
+        <p><strong>Tag Line:</strong> <cms:show tag_line /></p>
+        <p><strong>Address:</strong> <cms:show address /></p>
+        <p><strong>Promo Code:</strong> <cms:show promo_code /></p>
+        <div class="company-services">
+            <h2>Services</h2>
+            <cms:show_repeatable 'companies_services'></cms:show_repeatable>
+                <p><cms:show k_page_title /></p>
+            </cms:show_repeatable>
+        </div>
+        <div class="company-plans">
+            <h2>Plans</h2>
+            <cms:show_repeatable 'companies_plans'>
+                <p><cms:show k_page_title /></p>
+            </cms:show_repeatable>
+        </div>
+        <div class="company-links">
+            <h2>Links</h2>
+            <cms:show_repeatable 'links'>
+                <p><strong><cms:show type />:</strong> <a href="<cms:show url />"><cms:show url /></a></p>
+            </cms:show_repeatable>
+        </div>
+        <div class="company-faq">
+            <h2>Frequently Asked Questions</h2>
+            <cms:show_repeatable 'post_faq'>
+                <p><strong>Q:</strong> <cms:show question /></p>
+                <p><strong>A:</strong> <cms:show answer /></p>
+            </cms:show_repeatable>
+        </div>
+        <div class="related-page">
+            <h2>Related Page</h2>
+            <a href="<cms:show related_page_link />"><cms:show related_page_title /></a>
+        </div>
+    </div>
+

@@ -20,8 +20,8 @@
             <cms:editable name='recommended' label='Recommanded Product' type='single_check' opt_values='Yes' search_type='integer' order='15' class='col-md-2' />
             <cms:editable name='price' label='Price' desc='number' type='text' search_type='decimal' order='20' class='col-md-2' />
             <cms:editable name='duration' label='Duration' desc='Daily/Monthly/Yearly/Triennially' type='relation' has='one' searchable='0' order='30' orderby='page_name' order_dir='asc' create_auto='1' show_manage='1' advanced_gui='1' class='col-md-4'  />
-            <cms:editable name='plans_companies' label='Company' type='relation' has='one' searchable='0' order='40' masterpage='companies.php' advanced_gui='1' orderby='page_name' order_dir='asc' show_manage='1' class='col-md-4' />
-            <cms:editable name='plans_services' label='Service Type' type='relation' has='one' searchable='0' order='50' masterpage='services.php' advanced_gui='1' orderby='page_name' order_dir='asc' show_manage='1' class='col-md-4' />            
+            <cms:editable name='plans_companies' label='Company' type='relation' has='one' searchable='0' order='40' masterpage='hosting/companies.php' advanced_gui='1' orderby='page_name' order_dir='asc' show_manage='1' class='col-md-4' />
+            <cms:editable name='plans_services' label='Service Type' type='relation' has='one' searchable='0' order='50' masterpage='hosting/services.php' advanced_gui='1' orderby='page_name' order_dir='asc' show_manage='1' class='col-md-4' />            
             <cms:editable name='url' label='URL' type='text' order='60' searchable='0' search_type='text' desc='Link to the plans.' class='col-md-4' />
         </cms:editable>
     </cms:editable>

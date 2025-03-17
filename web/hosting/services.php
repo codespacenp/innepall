@@ -12,9 +12,12 @@
         <cms:field 'k_actions' />
     </cms:config_list_view>
     
-<!-- Editable Fields -->    
-<cms:editable name='services_companies' label='Companies' type='relation' masterpage='companies.php' orderby='page_title' order='10' order_dir='asc' advanced_gui='1' show_manage='1' />
-<cms:editable name='services_plans' label='Plans' type='reverse_relation' field='plans_services' masterpage='plans.php' orderby='page_title' order='10' order_dir='asc' advanced_gui='1' show_manage='1' />
+<!-- Editable Fields -->
+ <cms:editable name='description' label='Description' type='textarea' order='10' searchable='1' search_type='text'  />
+ <cms:editable name='relation_group' label='Relations' type='group' order='20' collapsed='0' >
+ <cms:editable name='services_companies' label='Companies' type='relation' masterpage='hosting/companies.php' orderby='page_title' order='10' order_dir='asc' advanced_gui='1' show_manage='1' />
+ <cms:editable name='services_plans' label='Plans' type='reverse_relation' field='plans_services' masterpage='hosting/plans.php' orderby='page_title' order='10' order_dir='asc' advanced_gui='1' show_manage='1' />
+ </cms:editable>
 </cms:template>
 <cms:smart_embed 'hosting' />
 <?php COUCH::invoke(); ?>

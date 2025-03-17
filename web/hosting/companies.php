@@ -14,8 +14,8 @@
     <cms:editable name='top_group' label='Company Info' type='group' order='10' collapsed='0' />
     <cms:editable name='company_1_row' group='top_group' type='row' order='10'>
         <cms:editable name='nepali_name' label='कम्पनीको नाम' type='text' order='10' class='col-md-4' />
-        <cms:editable name='companies_services' label='Services' type='reverse_relation' field='services_companies'masterpage='services.php' order='20' class='col-md-4' />
-        <cms:editable name='companies_plans' label='Plans' type='reverse_relation' field='plans_companies'masterpage='plans.php' order='30' class='col-md-4' />
+        <cms:editable name='companies_services' label='Services' type='reverse_relation' field='services_companies'masterpage='hosting/services.php' order='20' class='col-md-4' />
+        <cms:editable name='companies_plans' label='Plans' type='reverse_relation' field='plans_companies'masterpage='hosting/plans.php' order='30' class='col-md-4' />
     </cms:editable>
     <cms:editable name='company_2_row' group='top_group' type='row' order='20'>
         <cms:editable name='tag_line' label='Tag Line' type='text' order='10' class='col-md-4' />

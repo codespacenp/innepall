@@ -216,6 +216,7 @@
             <cms:editable name='curl_library' label='cURL Library' type='single_check' opt_values='Yes' search_type='integer' order='150' class='col-md-2' />
             <cms:editable name='phpmyadmin' label='PHPMyAdmin' type='single_check' opt_values='Yes' search_type='integer' order='160' class='col-md-2' />
             <cms:editable name='http3_quic' label='HTTP/3(QUIC)' type='single_check' opt_values='Yes' search_type='integer' order='170' class='col-md-2' />
+            <cms:editable name='nodejs' label='NodeJS' type='single_check' opt_values='Yes' search_type='integer' order='180' class='col-md-2' />
         </cms:editable>
     </cms:editable>
     <!-- WordPress Features -->
@@ -366,7 +367,9 @@
         <cms:stub name='javascript' filter='checkbox' />
         <cms:stub name='gd_graphics_library' filter='checkbox' />
         <cms:stub name='curl_library' filter='checkbox' />
+        <cms:stub name='phpmyadmin' filter='checkbox' />
         <cms:stub name='http3_quic' filter='checkbox' />
+        <cms:stub name='nodejs' filter='checkbox' />
         <cms:stub name='wordpress_features_group' />
         <cms:stub name='wordpress_features_row' />
         <cms:stub name='one_click_wordpress_installation' filter='checkbox' />

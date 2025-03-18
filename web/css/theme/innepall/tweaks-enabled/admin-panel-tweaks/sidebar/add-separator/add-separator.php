@@ -15,8 +15,8 @@
         global $FUNCS;
 
 
-        $FUNCS->register_admin_menuitem( array('name'=>'_dummy_01_', 'title'=>'──────────────────', 'parent'=>' ', 'weight'=>'10', 'class'=>'my-separator', 'is_header'=>'0')  );
-        $FUNCS->register_admin_menuitem( array('name'=>'_dummy_02_', 'title'=>'──────────────────', 'parent'=>'', 'weight'=>'20', 'class'=>'my-separator', 'is_header'=>'0')  );
+        //$FUNCS->register_admin_menuitem( array('name'=>'_dummy_01_', 'title'=>'──────────────────', 'parent'=>' ', 'weight'=>'10', 'class'=>'my-separator', 'is_header'=>'0')  );
+        //$FUNCS->register_admin_menuitem( array('name'=>'_dummy_02_', 'title'=>'──────────────────', 'parent'=>'', 'weight'=>'20', 'class'=>'my-separator', 'is_header'=>'0')  );
 
         // change style and layout in /theme/../sidebar.html
         // thanks to added custom class 'my-separator' for each separator.

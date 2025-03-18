@@ -9,6 +9,6 @@
 
     $cfg['tpls'] = 'companies.php | services.php | plans.php';
 
-    // Button
-    $cfg['btn_text'] = 'Copy to New';
-    $cfg['btn_desc'] = 'Copies the current page into a new page';
+     // Button
+     $cfg['btn_text'] = 'Copy to New';
+     $cfg['btn_desc'] = 'Copies the current page into a new page';

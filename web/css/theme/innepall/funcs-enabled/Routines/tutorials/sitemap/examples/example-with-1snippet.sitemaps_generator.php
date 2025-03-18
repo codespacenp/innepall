@@ -1,4 +1,4 @@
-<?php require_once 'couch/cms.php'; ?>
+<?php require_once 'css/cms.php'; ?>
 <cms:template title='Robots & Sitemaps generator' parent='_menu_group_system_' icon='loop' order='1'>
 
    <cms:config_form_view>

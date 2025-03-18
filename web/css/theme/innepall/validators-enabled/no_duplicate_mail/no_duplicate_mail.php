@@ -17,7 +17,7 @@
 
         if( strlen($email) ){
              // Create Couch script..
-            $html = "<cms:pages masterpage='contacts.php' id='NOT {$current_page_id}' custom_field='user_email=={$email}' "
+            $html = "<cms:pages masterpage='contacts.php' id='NOT {$current_page_id}' custom_field='user_email=={$email}' ";
             $html.= "show_future_entries='1' show_unpublished='1' count_only='1' />";
 
             // Pass on the code to Couch for execution using the 'embed' function

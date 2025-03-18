@@ -7,7 +7,7 @@
     // Names of the templates to use this addon with (use '|' to separate multiple templates) e.g.
     // $cfg['tpls'] = 'products.php | specs.php | users/profile.php';
 
-    $cfg['tpls'] = 'index.php | products.php | specs.php | users/profile.php';
+    $cfg['tpls'] = 'hosting/companies.php | hosting/plans.php | hosting/services.php |';
 
     // Button
     $cfg['btn_text'] = 'Copy to New';

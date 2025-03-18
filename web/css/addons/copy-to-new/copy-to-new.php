@@ -11,8 +11,8 @@
 
                 // populate config
                 $cfg = array();
-                if( file_exists(K_ADDONS_DIR.'copy-to-new/config.php') ){
-                    require_once( K_ADDONS_DIR.'copy-to-new/config.php' );
+                if( file_exists( __DIR__.'/config.php') ){
+                    require_once( __DIR__.'/config.php' );
                 }
                 $tpls = array_unique( array_filter(array_map("trim", explode('|', $cfg['tpls']))) );
                 $this->config['tpls'] = $tpls;
@@ -40,13 +40,13 @@
                         'nonce'=>'([a-fA-F0-9]{32})',
                         'id'=>'(([1-9]\d*)?)',
                     ),
-                    'include_file'=>K_ADDONS_DIR.'copy-to-new/edit-copy-to-new.php',
+                    'include_file'=> __DIR__.'/edit-copy-to-new.php',
                     'filters'=>'KCopyToNewAdmin::resolve_page=copy',
                     'class'=> ( $tpl['nested_pages'] ) ? 'KCopyToNewNestedAdmin' : 'KCopyToNewAdmin',
                     'action'=>'form_action',
                     'module'=>'copy-to-new',
                 );
-                $default_routes['copy_view'] =  $route;
+                $default_routes['copy_view'] = $route;
             }
 
             function add_toolbar_btn( &$arr_buttons ){

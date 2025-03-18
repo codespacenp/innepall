@@ -1,0 +1,12 @@
+Open config.php (usually in folder with CMS e.g. /couch/config.php) and tweak this setting:
+
+// 26.
+// If the admin-panel uses a custom theme, set the following to the folder-name of the theme.
+// Theme folder is expected to be within the 'couch/theme' folder. No leading or trailing slashes please.
+define( 'K_ADMIN_THEME', 'ryazania-free' );
+
+Unpack zip into /couch/theme/ folder. You should have snippets going like
+/couch/theme/ryazania-free/content_form.html
+etc..
+
+Everything just works "out of the box". Explore README.md files (also in subfolders), there is everything there.

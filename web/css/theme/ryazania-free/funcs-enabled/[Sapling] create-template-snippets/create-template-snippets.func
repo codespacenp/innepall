@@ -1,0 +1,53 @@
+<cms:func 'create-template-snippets'><cms:ignore>
+    ---
+    Если нужно, создаёт пустые файлы в папке '/snippets/name-of-template-php/' и саму папку.
+
+    If needed, creates empty snippets in folder mysnippets, subfolder based on masterpage name.
+    Example  -
+
+      <cms:call 'create-template-snippets' />
+
+    ---
+    *   @автор Антон С.
+    *   @почта tony.smirnov@gmail.com
+    </cms:ignore>
+    <cms:if k_user_access_level eq '10'>
+        <cms:if "<cms:not "<cms:tag_exists 'write' />"/>">
+           <cms:abort>Function 'create-template-snippets' expected tag <b>cms:write</b>, but it is not registered.</cms:abort>
+        </cms:if>
+        <cms:if "<cms:not k__snippets_path />">
+           <cms:abort>Function 'create-template-snippets' expected var <b>k__snippets_path</b>, but it is empty (not registered).</cms:abort>
+        </cms:if>
+        <cms:if "<cms:not k__template_name_dashes />">
+           <cms:abort>Function 'create-template-snippets' expected var <b>k__template_name_dashes</b>, but it is empty (not registered).</cms:abort>
+        </cms:if>
+        <cms:if "<cms:not k__template_name_dashes_nophp />">
+           <cms:abort>Function 'create-template-snippets' expected var <b>k__template_name_dashes_nophp</b>, but it is empty (not registered).</cms:abort>
+        </cms:if>
+        <cms:set arr_snippets = '[]' is_json='1' />
+
+        <cms:ignore><!-- Editable fields-related snippets --></cms:ignore>
+        <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/' k__template_name_dashes_nophp />_form_config.inc" />
+        <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/' k__template_name_dashes_nophp />_list_config.inc" />
+        <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/' k__template_name_dashes_nophp />.fields" />
+        <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/' k__template_name_dashes_nophp />.globals" />
+
+        <cms:ignore><!-- Smart_embed Views-related snippets --></cms:ignore>
+        <cms:if k_template_routable>
+            <cms:match_route />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/' k_matched_route '/route_' k_matched_route '.html' />" />
+        <cms:else_if k_template_is_clonable />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/page/' k__template_name_dashes_nophp  '-page.html' />" />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/folder/default.html' />" />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/archive/default.html' />" />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/list/' k__template_name_dashes_nophp  '-list.html' />" />
+        <cms:else />
+            <cms:set arr_snippets.= "<cms:concat k__template_name_dashes '/home/' k__template_name_dashes_nophp  '-default.html' />" />
+        </cms:if>
+        <cms:each arr_snippets as='snippet'>
+           <cms:if "<cms:not "<cms:exists snippet />" />" >
+               <cms:write "<cms:concat path=k__snippets_path path=snippet />" />
+           </cms:if>
+        </cms:each>
+    </cms:if>
+</cms:func>

@@ -1,0 +1,82 @@
+/* Nicedit improved default styling */
+.nicEdit-panelContain{background-color: #fff;}
+.nicEdit-button{display:block;width: 10px;height: 10px;padding: 0 1vh;}
+.nicEdit-panel{padding: 4px 1px 4px; }
+.nicEdit-main {min-height:40px!important;}
+.nicEdit-pane {min-width:50vh!important;}
+
+/* Fix for relation dropdown */
+.select>.select-caret{height:auto;}
+
+/* Fix for richtext */
+.cke_toolbar_break {clear: unset!important; }
+
+/* Make relation with less height */
+.k-relation-ex .k-relation-select{max-height:100px!important;}
+
+/* Make relation respect Row */
+.select.dropdown.k-relation-ex{min-width:100%!important;}
+
+/* Fix for popup */
+.ctrl-bot {
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* Search has margin to allow filter addon */
+div.search-field{margin-right: 15px;}
+
+/* Mosaic tile form-view has insufficient margin after last field */
+div#admin_wrapper_custom_fields{margin-bottom: 25px;}
+
+/* Vertically align to middle labels in stacked_layout of RR and Mosaic */
+.mosaic-list .cell-label { padding-top: 12px; }
+
+/* Collapsed Rows now look like fields */
+.k_row.has_fieldset {margin-top:15px}
+
+/* Fix collapsed div if cms:show_info has no text */
+#content > .alert {min-height: 3.5rem;} /* Also set in mod template (show_message.html)*/
+
+/* Fix for col, if row has .row-eq-height.row-wrap */
+.pull-right {margin-left: auto;}
+
+/* Add custom color to label-text */
+.label.label-text {background-color:darkgray; color: #fff; text-shadow: none; padding:1px 4px}
+
+/* Make checkboxes and radios arrange neatly if given .labels-aligned */
+.field.labels-aligned .ctrls-checkbox > label,
+.field.labels-aligned .ctrls-radio > label {min-width: 150px;}
+
+/* Make dropdown take full-width of column if given class "select-wide" */
+.k_dropdown.select-wide select {width: 9999px!important;}
+
+/* Make <tfoot> look like <thead> */
+.table.table-primary>tfoot{background-color:#663d2d;}
+.table.table-primary>tfoot>tr>th{border-color:#43291f;}
+.table>tfoot{
+  background-image:-moz-linear-gradient(top, rgba(255,255,255,.075) 0%, rgba(0,0,0,.125) 100%);
+  background-image:-ms-linear-gradient(top, rgba(255,255,255,.075) 0%, rgba(0,0,0,.125) 100%);
+  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,.075)), color-stop(100%, rgba(0,0,0,.125)));
+  background-image:-webkit-linear-gradient(top, rgba(255,255,255,.075) 0%, rgba(0,0,0,.125) 100%);
+  background-image:linear-gradient(to bottom, rgba(255,255,255,.075) 0%, rgba(0,0,0,.125) 100%);
+}
+.table>tfoot{background-color:#ececec;}
+.table>tfoot{font-size:14px;color:#222;text-shadow:0 1px 0 #fff;}
+.table.table-primary>tfoot{color:#f0f0f0;text-shadow:0 1px 0 rgba(0,0,0,.6);}
+.table>tfoot>tr>th{padding:10px 0 10px 10px;border-bottom:1px solid #c0c0c0;text-align:left;font-weight:bold;}
+.table>tfoot>tr>th:last-child{padding-right:10px;}
+.table.table-primary>tfoot>tr>.col-highlight{
+  border-right-color:rgba(0,0,0,.1);
+  border-left-color:rgba(0,0,0,.1);
+  background-color:rgba(0,0,0,.125);
+}
+.table>tfoot>tr>.col-sort{padding-top:0;padding-bottom:0;padding-left:0;}
+.table.table-primary>tfoot>tr>th>.col-sort-link,.table.table-primary>tfoot>tr>th>.th-default>.col-sort-link{color:#f0f0f0;fill:#f0f0f0;}
+.table.table-primary>tfoot>tr>th>.col-sort-link:hover,.table.table-primary>tfoot>tr>th>.col-sort-link:focus,
+.table.table-primary>tfoot>tr>th>.th-default>.col-sort-link:hover,.table.table-primary>tfoot>tr>th>.th-default>.col-sort-link:focus{color:#fff;fill:#fff;}
+.table-primary>tfoot>tr>.col-checkbox>.checkbox>input:checked+.ctrl-option,
+.table-primary>tfoot>tr>.col-checkbox>.checkbox>input:active+.ctrl-option{background-color:rgba(0,0,0,.35);}
+
+/* end */
+/* suggestions and feedback: tony.smirnov@gmail.com */

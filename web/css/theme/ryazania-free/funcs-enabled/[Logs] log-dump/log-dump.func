@@ -1,0 +1,17 @@
+<cms:func 'log-dump' file='' ><cms:ignore>
+    ---
+    Любимый дамп переменных в HTML файле!
+
+    Saves output of "dump_all" to HTML file. Default is 'my_log.html'
+    Example -
+
+        <cms:call 'log-dump' />
+    ---
+    *   @автор Антон С.
+    *   @почта tony.smirnov@gmail.com
+    </cms:ignore>
+    <cms:log
+        msg  = "<br><cms:dump_all /><br>"
+        file = "<cms:get 'file' default='my_log.html' />"
+    />
+</cms:func>

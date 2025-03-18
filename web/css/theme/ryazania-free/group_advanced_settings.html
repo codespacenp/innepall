@@ -1,0 +1,82 @@
+<cms:capture into='my_advanced_settings' >
+    <cms:admin_form_fields childof='_advanced_settings_' depth='1'>
+        <cms:render 'form_row' />
+    </cms:admin_form_fields>
+</cms:capture>
+
+<cms:ignore><!-- Button to delete page from Advanced Settings panel--></cms:ignore>
+<cms:capture into='my_deletepage_link' trim='1'>
+    <cms:if k_cur_form_mode eq 'edit'>
+        <div id="delete-page" class="k_element field">
+            <a id="delete" class="btn btn-error icon-collapse tt-collapse delete" title="Delete <cms:show k_page_title />"  href="javascript:void(0);">
+                <span class="btn-icon"><cms:show_icon 'x'/></span><span class="collapse-title"><cms:localize 'delete' /></span>
+            </a>
+        </div>
+    </cms:if>
+</cms:capture>
+<cms:capture into='my_list_link' trim='1'>
+    <cms:php>echo K_ADMIN_URL.K_ADMIN_PAGE.'?o='.urlencode('<cms:show k_template_name />').'&q=list';</cms:php>
+</cms:capture>
+<cms:ignore><!-- /end of delete button --></cms:ignore>
+
+<cms:if "<cms:not_empty my_advanced_settings />">
+    <cms:php>global $CTX; $CTX->set('k_show_advanced_settings', '1', 'global');</cms:php>
+
+    <div id="settings-panel">
+        <button class="btn icon-collapse tt-collapse" id="settings-panel-toggle" data-title="<cms:localize 'advanced_settings' />" type="button"><cms:show_icon 'cog' /><span class="collapse-title"><cms:localize 'advanced_settings' /></span></button>
+
+        <div class="panel-body fade-short" style="display:none;">
+            <cms:show my_advanced_settings />
+            <cms:show my_deletepage_link />
+        </div>
+    </div>
+
+    <cms:admin_add_js>
+        $( function() {
+            var speed = 250;
+            $( "#settings-panel-toggle" ).on( "click", function() {
+                var $this = $( this ).blur();
+
+                ( $this.hasClass( "expanded" ) ? COUCH.slideFadeHide : COUCH.slideFadeShow )( $this.toggleClass( "expanded" ).next(), speed );
+            });
+        });
+    </cms:admin_add_js>
+
+    <cms:ignore><!-- /Db processing of delete button --></cms:ignore>
+    <cms:admin_add_js>
+        $( function() {
+            $( "div#delete-page a#delete" ).on( "click", function() {
+
+                if (!confirm('<cms:localize 'confirm_delete_page' />?')){ return; }
+
+                // begin db-update
+                nonce = "<cms:create_nonce action='ajax_action_my_deletepage' />";
+                $.ajax({
+                    url: '<cms:show k_admin_link />ajax.php?act=my_deletepage&nonce=' + nonce,
+                    type: 'POST',
+                    data: {
+                        "page-id": "<cms:show k_page_id />",
+                        "template-id": "<cms:show k_template_id />"
+                    },
+                })
+                .done(function( data ){
+                    if( data ){
+                        toastr.error(data, "", { // TODO: localize
+                            "positionClass": "toast-bottom-right",
+                            "showDuration": "250",
+                            "hideDuration": "250",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "500",
+                            "icon": '<cms:show_icon 'ban' />'
+                        });
+                    } else {
+                        window.location.href='<cms:show my_list_link/>';
+                    }
+                })
+                .always(function() {});
+            });
+        });
+    </cms:admin_add_js>
+    <cms:ignore><!-- /end of delete button --></cms:ignore>
+
+</cms:if>

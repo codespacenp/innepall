@@ -1,0 +1,45 @@
+<cms:func 'clock' memo='' show='0' diff='1'><cms:ignore>
+  ---
+  Запоминаем время и метку. Считаем разницу. Отправляем SQL запрос на каждом вызове.
+
+  Records time and a memo. Calculates difference between calls. Sends SQL SELECT to track queries sent between.
+  Example -
+
+   <cms:call 'clock' memo='Tag :pages start'/>
+
+  ---
+  *   @автор Антон С.
+  *   @почта tony.smirnov@gmail.com
+  </cms:ignore>
+  <cms:php>
+    global $CTX, $DB;
+    $c = $CTX->get('clock', 2);
+    if( !is_array( $c ) ){ $c=array(); }
+    $cnt=count($c);
+    $memo=trim($CTX->get('memo', 1));
+    $sep=$memo?' :: ':'';
+    $DB->raw_select('SELECT "------------ CLOCK'.$sep.$DB->sanitize($memo).' --------"');
+    $step=str_pad($cnt+1, 4, '0', STR_PAD_LEFT);
+    $ts = round( microtime( true ) * 1000 );
+    $prev = array_pop($c);
+    $last = array();
+    $last['step']=$step;
+    $last['memo']=$memo;
+    $last['ts']=$ts;
+    $last['ms']=substr($ts, -3);
+    $last['date']=date("H:i:s");
+    $last['diff']=is_null($prev)? '' : ($ts-$prev['ts']);
+    if($prev)$c[]=$prev;
+    $c[]=$last;
+    $CTX->set('clock',$c,'global');
+  </cms:php>
+  <cms:if show>
+<pre>
+<cms:each clock as='c'>
+<cms:if c.diff><cms:concat p1='            + ' p2=c.diff eol="\r\n" /></cms:if>
+<cms:set sep="<cms:if c.memo>::</cms:if>"/>
+<cms:concat p1=c.step ' ' p2=c.date ' ' p3=c.ms ' ' p4=sep ' ' p5=c.memo eol="\r\n"/>
+</cms:each>
+</pre>
+  </cms:if>
+</cms:func>

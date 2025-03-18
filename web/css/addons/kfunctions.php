@@ -18,7 +18,7 @@ require_once( K_COUCH_DIR.'addons/bootstrap-grid/bootstrap-grid.php' );
 require_once( K_COUCH_DIR.'addons/recaptcha/recaptcha.php' );
 //require_once( K_COUCH_DIR.'addons/color-picker/color-picker.php' );
 //Custom Addons Begins Here
-require_once( K_COUCH_DIR.'addons/list_tags.php' );
+//require_once( K_COUCH_DIR.'addons/list_tags.php' );
 //require_once( K_COUCH_DIR.'addons/votes/votes.php' );
 require_once( K_COUCH_DIR.'addons/minify-js-css/minify.php' );
 require_once( K_COUCH_DIR.'addons/tiny-html-minifier/TinyMinify.php' );

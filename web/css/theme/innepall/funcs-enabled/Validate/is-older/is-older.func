@@ -1,0 +1,20 @@
+<cms:func 'is-older' date='' than='' date1='' date2='' ><cms:ignore>
+    ---
+    Is date older than another date?
+    Example -
+
+        <cms:call 'is-older' "<cms:call 'file-creation-date' file='image.jpg' />" than=k__yesterday />
+        <cms:call 'is-older' k_page_modification_date than="<cms:date '-1 week' />" />
+
+    ---
+    You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+    Donate and help keep functions updated!
+    Support requests: tony.smirnov@gmail.com "Antony"
+    </cms:ignore><cms:trim>
+    <cms:set date1 = "<cms:get 'date' default=date1 />" />
+    <cms:set date2 = "<cms:get 'than' default=date2 />" />
+    <cms:set date1 = "<cms:date date1 format='U' />" />
+    <cms:set date2 = "<cms:date date2 format='U' />" />
+    <cms:if date1 lt date2>1<cms:else />0</cms:if>
+    </cms:trim>
+</cms:func>

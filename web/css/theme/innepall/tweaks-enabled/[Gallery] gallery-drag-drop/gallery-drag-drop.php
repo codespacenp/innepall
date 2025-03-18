@@ -42,3 +42,15 @@
 
       $DB->commit();
    });
+
+   /*
+   // ~~~~~~~~~~~~~
+   // Credits
+   // ~~~~~~~~~~~~~
+   // You should have downloaded this code from https://github.com/trendoman/Tweakus-Dilectus
+   // ~~~~~~~~~~~~~
+   // Support
+   // ~~~~~~~~~~~~~
+   // Write me at <anton.cms@ya.ru>, <tony.smirnov@gmail.com> "Anton S aka Trendoman"
+   // Telegram: https://t.me/couchcms
+   */

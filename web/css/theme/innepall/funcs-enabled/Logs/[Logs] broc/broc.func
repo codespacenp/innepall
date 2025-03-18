@@ -1,0 +1,19 @@
+<cms:func 'broc' data=''><cms:ignore>
+   ---
+   Print anything to browser console
+   Example -
+
+      <cms:call 'broc' myvar />
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   </cms:ignore>
+   <script>
+      console.log('%c <cms:addslashes quote="single"><cms:show data as_json="1"/></cms:addslashes>', 'display:block; border: thick double #32a1ce; padding:20px ');
+      console.log('%c <cms:date format="Y-m-d H:i:s"/> printed from CouchCMS by "broc" func', 'display:block; border: thin double #32a1ce; padding:2px; font-style:italic ');
+   </script>
+</cms:func>
+
+

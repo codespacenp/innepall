@@ -1,0 +1,14 @@
+<cms:func 'load-fields' debug="<cms:gpc 'debug' default='0'/>"><cms:ignore>
+   ---
+   Router for fields.
+   Example -
+
+      <cms:call 'load-fields' />
+
+   ---
+   </cms:ignore>
+   <cms:call 'embed' "views/<cms:show k__template_name_safe_ex />/config-form-view.inc" />
+   <cms:call 'embed' "views/<cms:show k__template_name_safe_ex />/config-list-view.inc" />
+   <cms:call 'embed' "views/<cms:show k__template_name_safe_ex />/<cms:show k__template_name_safe_ex />.fields" />
+   <cms:call 'embed' "views/<cms:show k__template_name_safe_ex />/<cms:show k__template_name_safe_ex />.globals" />
+</cms:func>

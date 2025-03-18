@@ -2,33 +2,42 @@
 
 Allows to rearrange images by mouse, greatly simplifies sorting.
 
-<details open><summary>Demo</summary>
+Demo —
 
-![img](img/demo-drag-drop.gif)
-</details>
+https://user-images.githubusercontent.com/6024107/175763951-deba632f-7bc8-4377-9c59-0a9e0b3b9a61.mp4
 
-It is based on famous [**Dragula.js**](https://github.com/bevacqua/dragula) library.
+This is my amazing drag-n-drop ajax-powered solution for Couch Gallery templates. It is based on famous [**Dragula.js**](https://github.com/bevacqua/dragula) library.
 
 Easy to install, it additionally fixes a few things for gallery templates —
 
-* If Root doesn't contain images, but contains a subfolder with images, there will be no "Empty" message in Root.
-*	File name length expanded to 30 chars
-* Screen is not dimmed when position is changed by default buttons.
+* If Root doesn't contain images, but contains a Subfolder with images, the will be no weird "Empty" infomessage.
+*	Gallery name length changed from 20 to 30
+* Screen is no longer dimmed when position is changed by buttons in default regime.
 
 ## Installation
 
-* Keep this folder in /tweaks-enabled/
-* Template with gallery must have configuration **`orderby='weight'`**, example:
+Everything described in the dedicated [**INSTALL**](/INSTALL.md) page applies.
+
+In essense —
+
+* Keep this tweak enabled (i.e. `gallery-drag-drop.php`)
+* Move folder `theme-gallery-dragndrop` to `couch/theme` directory
+* Edit Couch config e.g.
+
+   ```php
+   define( 'K_ADMIN_THEME', 'theme-gallery-dragndrop' );
+   ```
+
+* Add mandatory configuration `orderby='weight'` to your gallery template e.g.
 
    ```xml
-   <cms:template gallery='1'>
+   <cms:template ... gallery='1'>
       <!-- editable fields here -->
 
       <cms:config_list_view orderby='weight' />
    </cms:template>
    ```
 
-## Credits
+## Support
 
-Anton S.\
-tony.smirnov@gmail.com
+See dedicated [**SUPPORT**](/SUPPORT.md) page.

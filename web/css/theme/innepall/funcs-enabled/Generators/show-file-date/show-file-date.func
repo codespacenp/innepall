@@ -1,0 +1,23 @@
+<cms:func 'show-file-date' file=''><cms:ignore>
+   ---
+   Show file content as text i.e. without Couch parsing.
+   Example -
+
+      <cms:call 'show-file-date' 'index.php' />
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   </cms:ignore>
+   <cms:php>
+      global $CTX;
+
+      $mtime = '';
+      $file = trim( strval( $CTX->get('file', $local=1) ), "// \\" );
+      $path = K_SITE_DIR . str_replace( array( K_SITE_URL, K_SITE_DIR, '\\' ), array( '', '', '/' ), $file );
+      if( is_file($path) ) $mtime = trim( @date ("Y-m-d H:i:s", @filemtime($path) ) );
+
+      return $mtime;
+   </cms:php>
+</cms:func>

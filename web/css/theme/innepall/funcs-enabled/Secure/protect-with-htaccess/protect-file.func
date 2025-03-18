@@ -1,0 +1,33 @@
+<cms:func 'protect-file' user='admin' password="<cms:date format='ymd' />" file=''><cms:ignore>
+   ---
+   Writes .htaccess AND .htpasswd to password-protect a file
+   Example -
+
+      <cms:call 'protect-file' 'root' 'r000t' file='secure/email_log.txt'/>
+
+   ---
+   You should have downloaded this function from https://github.com/trendoman/Cms-Fu
+   Donate and help keep functions updated!
+   Support requests: tony.smirnov@gmail.com "Antony"
+   </cms:ignore>
+   <cms:if user && password && file>
+      <cms:set creds = "<cms:trim user />:<cms:call 'htpasswd' password=password />" />
+      <cms:php>
+         global $CTX;
+         $file = trim( $CTX->get('file'), ' /\\');
+         $file = K_SITE_DIR . str_replace( array( K_SITE_URL, K_SITE_DIR, '\\' ), array( '', '', '/' ), $file );
+         $dir = dirname($file);
+         if (!is_dir($dir)){ mkdir($dir, 0755, true); }
+         if (!is_file($file)){ file_put_contents($file, 'protected with htpasswd', LOCK_EX); }
+         $basename = basename($file);
+         $content .= '<Files "'.$basename.'">' . PHP_EOL;
+         $content .= 'AuthType Basic' . PHP_EOL;
+         $content .= 'AuthName "Password Protected Area"' . PHP_EOL;
+         $content .= 'AuthUserFile "' . $dir . '/.htpasswd"' . PHP_EOL;
+         $content .= 'Require valid-user'. PHP_EOL;
+         $content .= '</Files>';
+         file_put_contents($dir."/.htaccess", $content, LOCK_EX);
+         file_put_contents($dir."/.htpasswd", trim($CTX->get('creds')), LOCK_EX);
+      </cms:php>
+   </cms:if>
+</cms:func>

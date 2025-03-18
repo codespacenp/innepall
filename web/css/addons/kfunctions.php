@@ -20,8 +20,8 @@ require_once( K_COUCH_DIR.'addons/recaptcha/recaptcha.php' );
 //Custom Addons Begins Here
 //require_once( K_COUCH_DIR.'addons/list_tags.php' );
 //require_once( K_COUCH_DIR.'addons/votes/votes.php' );
-require_once( K_COUCH_DIR.'addons/minify-js-css/minify.php' );
-require_once( K_COUCH_DIR.'addons/tiny-html-minifier/TinyMinify.php' );
+//require_once( K_COUCH_DIR.'addons/minify-js-css/minify.php' );
+//require_once( K_COUCH_DIR.'addons/tiny-html-minifier/TinyMinify.php' );
 //require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__sling/sling.php' );
 //require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__admin-panel-tweaks/__autoload.php' );
 //require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__func-on-demand/func-on-demand.php' );

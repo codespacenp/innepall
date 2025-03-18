@@ -25,6 +25,7 @@
         __DIR__ . '/tweaks-enabled/',
         __DIR__ . '/validators-enabled/',
         __DIR__ . '/vars-enabled/',
+		__DIR__ . '/funcs-enabled/',
     )), function($path){return file_exists($path);});
 
     $includeAddons = array_filter( array_map(function($path){ return str_replace( array('\\','/'), DIRECTORY_SEPARATOR, $path); }, array(

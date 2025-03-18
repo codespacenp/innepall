@@ -30,4 +30,4 @@ require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__tags-modded/__autoload.php' )
 require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__tags-new/__autoload.php' );
 //require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__validators/__autoload.php' );
 //require_once( K_COUCH_DIR.'addons/anton.cms@ya.ru__variables-new/__autoload.php' );
-require_once( K_COUCH_DIR.'addons/copy-to-new/__autoload.php' );
+//require_once( K_COUCH_DIR.'addons/copy-to-new/__autoload.php' );

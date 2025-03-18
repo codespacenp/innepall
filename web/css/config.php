@@ -151,7 +151,7 @@
     // 26.
     // If the admin-panel uses a custom theme, set the following to the folder-name of the theme.
     // Theme folder is expected to be within the 'couch/theme' folder. No leading or trailing slashes please.
-    //define( 'K_ADMIN_THEME', 'sample' );
+    define( 'K_ADMIN_THEME', 'ryazania-free' );
 
     // 27.
     // Google reCAPTCHA API Keys.

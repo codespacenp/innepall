@@ -4,5 +4,6 @@
     <img src="<cms:thumbnail logo width='128' height='128' enforce_max='1' />">
     <img src="<cms:thumbnail screenshot width='1024' enforce_max='1' />">
 </cms:ignore>
+<cms:if k_is_list > <cms:embed 'hosting/companies/list.html' /> <cms:else_if k_is_page /> <cms:embed 'hosting/companies/single.html' /> </cms:if>
     <cms:block_parent />
 </cms:block>

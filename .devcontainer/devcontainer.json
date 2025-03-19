@@ -4,6 +4,7 @@
     "ghcr.io/ddev/ddev/install-ddev:latest": {}
   },
   "postCreateCommand": "echo 'it should all be set up'",
+  "postStartCommand": "ddev export-db --file=/workspaces/innepall/web/backup/backup.sql.gz",
   "portsAttributes": {
     "80": {
       "label": "Public Port 80",

@@ -10,5 +10,12 @@
       "label": "Public Port 80",
       "visibility": "public"
     }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "DEVSENSE.phptools-vscode"
+      ]
+    }
   }
 }

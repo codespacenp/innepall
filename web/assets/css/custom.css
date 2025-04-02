@@ -37,3 +37,18 @@
 .in-10x {
     font-size: 10em;
 }
+
+/* Ribbon in the card */
+.ribbon {
+    position: absolute;
+    top: 15px; /* Adjust this to position it vertically */
+    right: 0px; /* Adjust this to position it horizontally */
+    z-index: 1; /* Ensures it appears above the card */
+    background-color: red;
+    color: white;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  

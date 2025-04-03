@@ -15,7 +15,8 @@
     <cms:editable name='top_group' label='Company Info' type='group' order='10' collapsed='0' />
     <cms:editable name='company_1_row' group='top_group' type='row' order='10'>
         <cms:editable name='nepali_name' label='कम्पनीको नाम' type='text' order='10' class='col-md-2' />
-        <cms:editable name='short_info' label='Short Information' desc='Limit upto 160 characters' type='text' order='20' class='col-md-6' />
+        <cms:editable name='short_info' label='Short Information' desc='Limit upto 160 characters' type='text'
+            order='20' class='col-md-6' />
         <cms:editable name='companies_services' label='Services' type='reverse_relation' field='services_companies'
             masterpage='hosting/services.php' order='30' class='col-md-2' />
         <cms:editable name='companies_plans' label='Plans' type='reverse_relation' field='plans_companies'
@@ -32,11 +33,9 @@
     <cms:editable name='image_group' label='Company Images' type='group' order='40' collapsed='0' />
     <cms:editable name='company_3_row' group='image_group' type='row' order='40'>
         <cms:editable name='logo' label='Logo' type='image' width='512' enforce_max='1' desc='Use square image'
-            quality='92' show_preview='1' preview_height='32' allowed_ext='jpg, jpeg, png, webp' order='10'
-            class='col-md-6' />
-        <cms:editable name='screenshot' label='Screenshot' desc='Screenshot of the company website' type='image'
-            width='1920' height='1080' enforce_max='1' quality='92' show_preview='1' preview_height='32'
-            allowed_ext='jpg, jpeg, png, webp' order='20' class='col-md-6' />
+            show_preview='1' preview_height='32' allowed_ext='jpg, jpeg, png, webp' order='10' class='col-md-6' />
+        <cms:editable name='screenshot' label='Screenshot' desc='Screenshot of the company website' type='image' width='1660' enforce_max='1' show_preview='1' preview_height='32' allowed_ext='jpg, jpeg, png, webp'
+            order='20' class='col-md-6' />
     </cms:editable>
     <cms:repeatable name='links' label='Links' stacked_layout='0' order='50'>
         <cms:editable name='type' label='Type'

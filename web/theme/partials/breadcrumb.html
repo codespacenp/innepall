@@ -2,20 +2,22 @@
   <div class="row align-items-center">
     <div class="col-12">
       <div class="d-sm-flex align-items-center justify-space-between">
-        <h4 class="fw-semibold fs-4 mb-4 mb-md-0 card-title"><cms:show k_template_title /></h4>
+        <h4 class="fw-semibold fs-4 mb-4 mb-md-0 card-title">
+          <cms:if k_is_list>
+            <cms:show k_template_title />
+            <cms:else_if k_is_page />
+            <cms:show k_template_title /> <i class="ti ti-arrow-narrow-right"></i> <cms:show k_page_title />
+          </cms:if>
+        </h4>
         <nav aria-label="breadcrumb" class="ms-auto">
           <ol class="breadcrumb">
             <li class="breadcrumb-item d-flex align-items-center">
               <a class="text-muted text-decoration-none d-flex" href="<cms:show k_site_link />">
-                <iconify-icon
-                  icon="solar:home-2-line-duotone"
-                  class="fs-6"
-                ></iconify-icon
-              ></a>
+                <iconify-icon icon="solar:home-2-line-duotone" class="fs-6"></iconify-icon></a>
             </li>
             <li class="breadcrumb-item" aria-current="page">
               <span class="badge fw-medium fs-2 bg-primary-subtle text-primary">
-                <cms:show k_template_title />
+                <a href="<cms:show k_template_link />"><cms:show k_template_title /></a>
               </span>
             </li>
           </ol>

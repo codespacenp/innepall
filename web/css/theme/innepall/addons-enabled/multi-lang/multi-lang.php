@@ -1,5 +1,7 @@
 <?php
-    if ( !defined('K_ENGINE_DIR') ) die(); // cannot be loaded directly
+    if ( !defined('K_ENGINE_DIR') ) {
+        define('K_ENGINE_DIR', __DIR__ . '/'); // Define K_ENGINE_DIR if not already defined
+    }
 
     if( !defined('K_ADMIN') ){
         class MultiLang{
@@ -16,7 +18,7 @@
 
                 // get the supported languages..
                 $this->populate_config();
-                if( !is_array($this->supported_langs) || !count($this->supported_langs) ) returh; // nothing to do
+                if( !is_array($this->supported_langs) || !count($this->supported_langs) ) return; // nothing to do
 
                 // initialize the language code variable
                 $lc = "";
@@ -258,7 +260,7 @@
                     }
                 }
                 else{
-                    $sep = $prefix{2};
+                    $sep = $prefix[2];
                     $prefix = rtrim( $prefix, '/' );
                     if( !($sep=='/' && array_key_exists($prefix, $this->supported_langs)) ){
                         $path = $lc . '/' . $path; // add if not already present

@@ -3,17 +3,26 @@
   <cms:pages>
     <div class="col-lg-4">
       <div class="card" style="overflow: hidden;">
-        <div class="ribbon">Featured</div>
         <div class="position-relative">
+          <!-- <div class="bg-dark-subtle text-warning rounded d-flex align-items-center justify-content-center p-2 mt-10 ms-10 position-absolute">
+            <iconify-icon icon="solar:medal-ribbons-star-bold-duotone" class="fs-8" width="48" height="48"></iconify-icon>
+          </div> -->
           <a href="javascript:void(0)">
-            <img src="<cms:thumbnail screenshot height='300' enforce_max='1' />" class="card-img-top" alt="<cms:show k_page_title /> Screenshot">
-          </a>         
+            <img src="<cms:thumbnail screenshot height='300' enforce_max='1' />" class="card-img-top"
+              alt="<cms:show k_page_title /> Screenshot">
+          </a>
           <span
-            class="badge text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">2 min Read</span>
+            class="badge text-bg-light text-dark fs-2 lh-sm mb-9 me-9 py-1 px-2 fw-semibold position-absolute bottom-0 end-0">2
+            min Read</span>
           <img src="<cms:thumbnail logo width='50' height='50' enforce_max='1' />" alt="<cms:show k_page_title /> logo"
             class="img-fluid img-thumbnail bg-white position-absolute bottom-0 start-0 mb-n9 ms-9" width="50"
             height="50" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="<cms:show k_page_title />">
         </div>
+        <cms:if featured='Yes'>
+          <div class="ribbon-wrapper">
+            <div class="ribbon bg-dark-subtle text-warning">Featured</div>
+          </div>
+        </cms:if>
         <div class="card-body pt-4 pb-2 px-4">
           <h4 class="card-title">
             <a href="<cms:show k_page_link />">
@@ -25,7 +34,9 @@
           </p>
         </div>
         <div class="px-4">
-          <cms:excerpt count='160' truncate_chars='1'><cms:show short_info /></cms:excerpt>
+          <cms:excerpt count='160' truncate_chars='1'>
+            <cms:show short_info />
+          </cms:excerpt>
         </div>
         <div class="card-body d-flex align-items-center px-4 py-3 gap-6">
           <a href="javascript:void(0)" class="link-primary text-muted d-flex align-items-center">
@@ -35,8 +46,10 @@
             <i class="ti ti-message-circle fs-6 me-1"></i>1
           </a>
           <div class="ms-auto d-flex align-items-center gap-6">
-            <cms:reverse_related_pages 'services_companies' masterpage='hosting/services.php' orderby='random' limit='3'>
-              <a href="<cms:show k_page_link />" class="link-primary text-muted d-flex align-items-center" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="<cms:show k_page_title />">                
+            <cms:reverse_related_pages 'services_companies' masterpage='hosting/services.php' orderby='random'
+              limit='3'>
+              <a href="<cms:show k_page_link />" class="link-primary text-muted d-flex align-items-center"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="<cms:show k_page_title />">
                 <cms:php>
                   echo preg_replace_callback(
                   '/<svg[^>]*>/i', // Match the opening SVG tag
@@ -62,7 +75,8 @@
                     $svgTag = preg_replace('/fill="[^"]*"/i', 'fill="#526B7A"', $svgTag);
                     } else {
                     // Add the fill attribute if it's missing
-                    $svgTag = preg_replace('/<svg /i', '<svg fill="#526B7A"' , $svgTag); } return $svgTag; }, '<cms:show service_icon />' ); </cms:php>
+                    $svgTag = preg_replace('/<svg /i', '<svg fill="#526B7A"' , $svgTag); } return $svgTag;
+                      }, '<cms:show service_icon />' ); </cms:php>
               </a>
             </cms:reverse_related_pages>
           </div>
